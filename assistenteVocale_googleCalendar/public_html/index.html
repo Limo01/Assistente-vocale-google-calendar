@@ -1,11 +1,42 @@
+<!--
+https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript
+-->
 <!DOCTYPE html>
-<html>
     <head>
-        <title>assistente</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Assistente di classe</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
+        <link rel="stylesheet" href="styles.css">
+
     </head>
     <body>
-        <div><h1>Prova</h1></div>
+        <div id="pagina" class="container">
+
+            <h1>Professor Tranquilli</h1>
+            <h3 class="no-browser-support">Sorry, this browser doesn't support the Web Speech API.</h3>
+
+            <div class="app">
+                <div class="input-single">
+                    <textarea id="note-textarea" rows="3" placeholder="Dimmi cosa devo fare."></textarea>
+                </div>         
+                <button id="start-record-btn" title="Start Recording">Start Recognition</button>
+                <button id="pause-record-btn" title="Pause Recording">Pause Recognition</button>
+                <button id="speak-btn" title="Read transcript">Read Transcript</button>
+                <button id="reset-btn" title="Reset">Reset</button>
+                <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
+            </div>
+
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="main.js"></script>
+        <script src="speech-synthesis.js"></script>
+        <script src="speech-recognition.js"></script>
+        <script src="SVG.js"></script>
+        <script src="Avatar.js"></script>
     </body>
 </html>
