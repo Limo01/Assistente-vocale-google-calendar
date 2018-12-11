@@ -12,7 +12,3 @@ function readOutLoud(message) {
     speech.pitch = 1;
     window.speechSynthesis.speak(speech);
 }
-
-function warn(student) {
-    readOutLoud(student + " sei avvertito: non ti comportare più in questo modo.");
-}
