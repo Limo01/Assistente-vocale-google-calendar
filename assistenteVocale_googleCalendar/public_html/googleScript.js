@@ -50,12 +50,12 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
-        document.getElementById('pagina').style.display='block';
+        document.getElementById('pagina').style.display = 'block';
         //listUpcomingEvents();
     } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
-        document.getElementById('pagina').style.display='none';
+        document.getElementById('pagina').style.display = 'none';
     }
 }
 
@@ -122,29 +122,22 @@ function addEvevntToCalendar(data, oraInizio, oraFine, evento)
 {
     var event = {
         "start": {
-          "dateTime": "2019-01-01T17:00:00",//data+"T"+oraInizio,
-          "timeZone": "Europe/Rome"
+            "dateTime": "2019-01-01T17:00:00", //data+"T"+oraInizio,
+            "timeZone": "Europe/Rome"
         },
         "end": {
-          "dateTime": "2019-01-01T19:00:00",//data+"T"+oraFine,
-          "timeZone": "Europe/Rome"
+            "dateTime": "2019-01-01T19:00:00", //data+"T"+oraFine,
+            "timeZone": "Europe/Rome"
         },
         "summary": evento
     };
-    
-    gapi.client.calendar.events.insert({
-      'calendarId': "primary",
-      'resource': event
-    }).then(function (response) {
-        appendPre(response);
+
+    var request = gapi.client.calendar.events.insert({
+        'calendarId': "primary",
+        'resource': event
     });
 
-//    var request = gapi.client.calendar.events.insert({
-//      'calendarId': "primary",
-//      'resource': event
-//    });
-
-//    request.execute(function(event) {
-//      appendPre('Event created: ' + event.htmlLink);
-//    });
+    request.execute(function (event) {
+        appendPre('Event created: ' + event.htmlLink);
+    });
 }
