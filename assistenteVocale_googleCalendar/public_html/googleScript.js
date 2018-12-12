@@ -131,13 +131,20 @@ function addEvevntToCalendar(data, oraInizio, oraFine, evento)
         },
         "summary": evento
     };
-
-    var request = gapi.client.calendar.events.insert({
+    
+    gapi.client.calendar.events.insert({
       'calendarId': "primary",
       'resource': event
+    }).then(function (response) {
+        appendPre(response);
     });
 
-    request.execute(function(event) {
-      appendPre('Event created: ' + event.htmlLink);
-    });
+//    var request = gapi.client.calendar.events.insert({
+//      'calendarId': "primary",
+//      'resource': event
+//    });
+
+//    request.execute(function(event) {
+//      appendPre('Event created: ' + event.htmlLink);
+//    });
 }
