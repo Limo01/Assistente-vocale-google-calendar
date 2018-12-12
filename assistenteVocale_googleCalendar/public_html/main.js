@@ -1,7 +1,5 @@
 window.onload= function(){
     this.avatar= new Avatar();
-    //this.avatar.iniziaAparlare("ciao.");
-    //setTimeout(this.avatar.smettiDiParlare, 5000);
 };
 
 /*-----------------------------
