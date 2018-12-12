@@ -7,7 +7,6 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 
 // Authorization scopes required by the API; multiple scopes can be
 // included, separated by spaces.
-//var SCOPES = "https://www.googleapis.com/auth/calendar.readonly";
 var SCOPES = "https://www.googleapis.com/auth/calendar";
 
 var authorizeButton = document.getElementById('authorize_button');
@@ -123,11 +122,11 @@ function addEvevntToCalendar(data, oraInizio, oraFine, evento)
 {
     var event = {
         "start": {
-            "dateTime": "2019-01-01T17:00:00", //data+"T"+oraInizio,
+            "dateTime": data+"T"+oraInizio,
             "timeZone": "Europe/Rome"
         },
         "end": {
-            "dateTime": "2019-01-01T19:00:00", //data+"T"+oraFine,
+            "dateTime": data+"T"+oraFine,
             "timeZone": "Europe/Rome"
         },
         "summary": evento
