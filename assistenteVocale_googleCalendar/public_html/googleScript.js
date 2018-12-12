@@ -118,7 +118,7 @@ function listUpcomingEvents() {
 }
 
 
-function addEvevntToCalendar(data, oraInizio, oraFine, evento)
+function addEventToCalendar(data, oraInizio, oraFine, evento)
 {
     var event = {
         "start": {
