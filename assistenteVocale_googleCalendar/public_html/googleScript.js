@@ -121,20 +121,15 @@ function listUpcomingEvents() {
 function addEvevntToCalendar(data, oraInizio, oraFine, evento)
 {
     var event = {
-        'summary': evento,//'Google I/O 2015',
-        'location': '',
-        'description': 'A chance to hear more about Google\'s developer products.',
-        'start': {
-          'dateTime': data+'T'+oraInizio+'-01:00',//'2015-05-28T09:00:00-07:00',
-          'timeZone': 'Rome/Italy'
+        "start": {
+          "dateTime": data+"T"+oraInizio,
+          "timeZone": "Europe/Rome"
         },
-        'end': {
-          'dateTime': data+'T'+oraFine+'-01:00',//'2015-05-28T17:00:00-07:00',
-          'timeZone': 'Rome/Italy'
+        "end": {
+          "dateTime": data+"T"+oraFine,
+          "timeZone": "Europe/Rome"
         },
-        'recurrence': [
-          'RRULE:FREQ=DAILY;COUNT=2'
-        ]
+        "summary": evento
     };
 
     var request = gapi.client.calendar.events.insert({
