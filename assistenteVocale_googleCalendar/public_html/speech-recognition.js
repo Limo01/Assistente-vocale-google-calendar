@@ -49,8 +49,12 @@ function interpret(line) {
     
     if(line.indexOf("prossimi eventi")>=0)
     {
-        console.log("eventi");
         listUpcomingEvents();
+    }
+    
+    if(line.indexOf("inserisci evento")>=0)
+    {
+        addEvevntToCalendar(2019-01-1, "09:00:00", "10:00:00", "capodanno");
     }
     
     console.log("fine interpret("+line+")");

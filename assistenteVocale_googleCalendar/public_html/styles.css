@@ -11,6 +11,10 @@ button:focus {
     outline: 0;
 }
 
+button{
+	margin: 4px 2px;
+}
+
 .container {
     max-width: 1000px;
     margin: 0 auto;
@@ -83,8 +87,11 @@ button:focus {
 
 #avatar
 {
-    margin: 40px auto;
     float: right;
+}
+
+.app{
+	padding-top: 50px;
 }
 
 /* -- Demo ads -- */

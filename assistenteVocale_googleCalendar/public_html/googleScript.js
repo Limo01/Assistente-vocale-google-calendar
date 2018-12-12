@@ -51,13 +51,11 @@ function updateSigninStatus(isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
         document.getElementById('pagina').style.display='block';
-        console.log(document.getElementById('pagina'));
         //listUpcomingEvents();
     } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
         document.getElementById('pagina').style.display='none';
-        console.log(document.getElementById('pagina'));
     }
 }
 
@@ -116,5 +114,35 @@ function listUpcomingEvents() {
         } else {
             appendPre('No upcoming events found.');
         }
+    });
+}
+
+
+function addEvevntToCalendar(data, oraInizio, oraFine, evento)
+{
+    var event = {
+        'summary': evento,//'Google I/O 2015',
+        'location': '',
+        'description': 'A chance to hear more about Google\'s developer products.',
+        'start': {
+          'dateTime': data+'T'+oraInizio+'-01:00',//'2015-05-28T09:00:00-07:00',
+          'timeZone': 'Rome/Italy'
+        },
+        'end': {
+          'dateTime': data+'T'+oraFine+'-01:00',//'2015-05-28T17:00:00-07:00',
+          'timeZone': 'Rome/Italy'
+        },
+        'recurrence': [
+          'RRULE:FREQ=DAILY;COUNT=2'
+        ]
+    };
+
+    var request = gapi.client.calendar.events.insert({
+      'calendarId': 'primary',
+      'resource': event
+    });
+
+    request.execute(function(event) {
+      appendPre('Event created: ' + event.htmlLink);
     });
 }
