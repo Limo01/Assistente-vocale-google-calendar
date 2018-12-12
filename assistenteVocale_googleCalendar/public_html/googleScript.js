@@ -122,18 +122,18 @@ function addEvevntToCalendar(data, oraInizio, oraFine, evento)
 {
     var event = {
         "start": {
-          "dateTime": data+"T"+oraInizio,
+          "dateTime": "2019-01-01T17:00:00",//data+"T"+oraInizio,
           "timeZone": "Europe/Rome"
         },
         "end": {
-          "dateTime": data+"T"+oraFine,
+          "dateTime": "2019-01-01T19:00:00",//data+"T"+oraFine,
           "timeZone": "Europe/Rome"
         },
         "summary": evento
     };
 
     var request = gapi.client.calendar.events.insert({
-      'calendarId': 'primary',
+      'calendarId': "primary",
       'resource': event
     });
 

@@ -1,6 +1,5 @@
 window.onload= function(){
     this.avatar= new Avatar();
-    setTimeout(function(){console.log("5000")}, 5000);
     //this.avatar.iniziaAparlare("ciao.");
     //setTimeout(this.avatar.smettiDiParlare, 5000);
 };
