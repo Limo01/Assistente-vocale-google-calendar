@@ -50,10 +50,14 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
+        document.getElementById('pagina').style.display='block';
+        console.log(document.getElementById('pagina'));
         //listUpcomingEvents();
     } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
+        document.getElementById('pagina').style.display='none';
+        console.log(document.getElementById('pagina'));
     }
 }
 
