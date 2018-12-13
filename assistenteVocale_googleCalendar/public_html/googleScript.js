@@ -51,7 +51,6 @@ function updateSigninStatus(isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
         document.getElementById('pagina').style.display = 'block';
-        //listUpcomingEvents();
     } else {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
@@ -141,6 +140,5 @@ function addEventToCalendar(data, oraInizio, oraFine, evento)
         appendPre('Event created: ' + event.htmlLink);
         var button= document.getElementById("responseButton");
         button.onclick= function(){window.location.href= event.htmlLink;};
-        button.style.display="block";
     });
 }

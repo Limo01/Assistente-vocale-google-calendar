@@ -96,6 +96,14 @@ function Avatar()
     
     this.oraInizioProgramma= new Date().getTime();
     this.stoParlando= false;
+    
+    var divResponse= document.createElement("div");
+    divResponse.setAttribute("id", "response");
+    var responseButton= document.createElement("button");
+    responseButton.innerHTML="Vai all'evento";
+    responseButton.setAttribute("id", "responseButton");
+    divResponse.appendChild(responseButton);
+    document.getElementById("pagina").appendChild(divResponse);
 };
 
 Avatar.prototype.muoviBocca= function()
