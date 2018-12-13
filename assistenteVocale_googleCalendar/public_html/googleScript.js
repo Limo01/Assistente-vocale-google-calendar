@@ -140,5 +140,6 @@ function addEventToCalendar(data, oraInizio, oraFine, evento)
         appendPre('Event created: ' + event.htmlLink);
         var button= document.getElementById("responseButton");
         button.onclick= function(){window.location.href= event.htmlLink;};
+        button.style.display="block";
     });
 }
