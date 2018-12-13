@@ -140,7 +140,7 @@ function addEventToCalendar(data, oraInizio, oraFine, evento)
     request.execute(function (event) {
         appendPre('Event created: ' + event.htmlLink);
         var iframe= document.createElement("iframe");
-        iframe.setAttribute("src", event.link);
+        iframe.setAttribute("src", event.htmlLink);
         document.body.appendChild(iframe);
     });
 }
