@@ -50,8 +50,13 @@ function interpret(line) {
         listUpcomingEvents();
     } else if (line.indexOf("Inserisci") === 0)
     {
+        console.log("inserisco evento");
         var dati= parseEvent(line);
-        if(dati!==undefined) addEventToCalendar(dati.data, dati.ora, dati.summary);
+        console.log(dati);
+        if(dati!==undefined)
+        {
+            addEventToCalendar(dati.data, dati.ora, dati.summary);
+        }
         //else window.avatar.say("Sintassi del comando errata");
     }
 
