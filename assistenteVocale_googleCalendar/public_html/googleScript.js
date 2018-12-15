@@ -121,11 +121,11 @@ function addEventToCalendar(data, ora, evento)
 {
     var event = {
         "start": {
-            "dateTime": data+"T"+ora,
+            "dateTime": data+"T"+ora+":00",
             "timeZone": "Europe/Rome"
         },
         "end": {
-            "dateTime": data+"T"+ora,
+            "dateTime": data+"T"+ora+":00",
             "timeZone": "Europe/Rome"
         },
         "summary": evento

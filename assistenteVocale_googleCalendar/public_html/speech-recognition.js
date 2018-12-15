@@ -50,15 +50,10 @@ function interpret(line) {
         listUpcomingEvents();
     } else if (line.indexOf("Inserisci") === 0)
     {
-        console.log("inserisco evento");
         var dati = parseEvent(line);
-        console.log(dati);
         if (dati !== undefined)
         {
-            console.log(dati.data+" "+dati.ora+" "+dati.summary);
             addEventToCalendar(dati.data, dati.ora, dati.summary);
-            addEventToCalendar("2019-1-1", "9:00", "capodanno");
-            addEventToCalendar("2019-01-02", "9:00", "cc");
         }
         //else window.avatar.say("Sintassi del comando errata");
     }
