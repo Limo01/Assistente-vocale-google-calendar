@@ -117,15 +117,15 @@ function listUpcomingEvents() {
 }
 
 
-function addEventToCalendar(data, oraInizio, oraFine, evento)
+function addEventToCalendar(data, ora, evento)
 {
     var event = {
         "start": {
-            "dateTime": data+"T"+oraInizio,
+            "dateTime": data+"T"+ora,
             "timeZone": "Europe/Rome"
         },
         "end": {
-            "dateTime": data+"T"+oraFine,
+            "dateTime": data+"T"+ora,
             "timeZone": "Europe/Rome"
         },
         "summary": evento

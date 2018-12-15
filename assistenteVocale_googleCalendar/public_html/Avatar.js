@@ -120,17 +120,12 @@ Avatar.prototype.muoviBocca= function()
     }
 };
 
-Avatar.prototype.iniziaAparlare= function(messaggio)
+Avatar.prototype.say= function(messaggio)
 {
     if(window.avatar.movimentoBocca===undefined && messaggio!=="")
     {
-        console.log("inizio a parlare");
-        
         window.avatar.movimentoBocca= setInterval(this.muoviBocca, 200);
         readOutLoud(messaggio);
-        console.log(new Date().getTime() - window.avatar.oraInizioProgramma);
-        
-        //setTimeout(window.avatar.smettiDiParlare, (new Date().getTime() - window.avatar.oraInizioProgramma));
         setTimeout(window.avatar.smettiDiParlare, (messaggio.length*100));
     }
 };

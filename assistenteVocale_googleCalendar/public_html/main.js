@@ -1,5 +1,9 @@
 window.onload= function(){
     this.avatar= new Avatar();
+    
+    var s= "Inserisci verifica matematica ore 9:00 il 23 gennaio";
+    
+    
 };
 
 /*-----------------------------
@@ -54,7 +58,7 @@ $('#reset-btn').on('click', function(e) {
 
 $('#speak-btn').on('click', function(e) {
     recognition.stop();
-    window.avatar.iniziaAparlare(noteContent);
+    window.avatar.say(noteContent);
 });
 
 // Sync the text inside the text area with the noteContent variable.
