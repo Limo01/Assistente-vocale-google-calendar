@@ -62,7 +62,7 @@ function interpret(line) {
 
     function parseEvent(s)
     {
-        console.log("parse event");
+        console.log("parse event: "+s);
         var sElement = s.split(" ");
         var indiceOre = undefined;
         for (var i = 0; i < sElement.length; i++)
