@@ -57,6 +57,8 @@ function interpret(line) {
         {
             console.log(dati.data+" "+dati.ora+" "+dati.summary);
             addEventToCalendar(dati.data, dati.ora, dati.summary);
+            addEventToCalendar("2019-1-1", "9:00", "capodanno");
+            addEventToCalendar("2019-01-02", "9:00", "cc");
         }
         //else window.avatar.say("Sintassi del comando errata");
     }
