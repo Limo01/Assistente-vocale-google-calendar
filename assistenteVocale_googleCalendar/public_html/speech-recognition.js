@@ -55,6 +55,7 @@ function interpret(line) {
         console.log(dati);
         if (dati !== undefined)
         {
+            console.log(dati.data+" "+dati.ora+" "+dati.summary);
             addEventToCalendar(dati.data, dati.ora, dati.summary);
         }
         //else window.avatar.say("Sintassi del comando errata");
