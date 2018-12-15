@@ -94,7 +94,9 @@ function interpret(line) {
             var giorno = sElement[indiceOre + 3];
             data = anno + "-" + mese + "-" + giorno;
         }
-
+        
+        console.log(summary+" "+ora+" "+data);
+        
         if (summary !== undefined && ora !== undefined && data !== undefined)
         {
             return {"summary": summary, "data": data, "ora": ora};
