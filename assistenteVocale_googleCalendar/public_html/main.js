@@ -1,9 +1,5 @@
 window.onload= function(){
     this.avatar= new Avatar();
-    
-    var s= "Inserisci verifica matematica ore 9:00 il 23 gennaio";
-    
-    
 };
 
 /*-----------------------------

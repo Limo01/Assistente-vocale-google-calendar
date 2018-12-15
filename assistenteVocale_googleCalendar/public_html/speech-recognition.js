@@ -51,59 +51,55 @@ function interpret(line) {
     } else if (line.indexOf("Inserisci") === 0)
     {
         console.log("inserisco evento");
-        var dati= parseEvent(line);
+        var dati = parseEvent(line);
         console.log(dati);
-        if(dati!==undefined)
+        if (dati !== undefined)
         {
             addEventToCalendar(dati.data, dati.ora, dati.summary);
         }
         //else window.avatar.say("Sintassi del comando errata");
     }
+}
 
-    function parseEvent(s)
+function parseEvent(s)
+{
+    var sElement = s.split(" ");
+    var indiceOre = undefined;
+    for (var i = 0; i < sElement.length; i++)
     {
-        console.log("parse event: "+s);
-        var sElement = s.split(" ");
-        var indiceOre = undefined;
-        for (var i = 0; i < sElement.length; i++)
-        {
-            if (sElement[i] === "ore")
-                indiceOre = i;
-        }
+        if (sElement[i] === "ore")
+            indiceOre = i;
+    }
 
-        var summary = undefined;
-        if (indiceOre !== undefined && indiceOre > 1 && indiceOre !== sElement.length - 1)
+    var summary = undefined;
+    if (indiceOre !== undefined && indiceOre > 1 && indiceOre !== sElement.length - 1)
+    {
+        summary = sElement[1];
+        for (var i = 2; i < indiceOre; i++)
         {
-            summary = sElement[1];
-            for (var i = 2; i < indiceOre; i++)
-            {
-                summary += " " + sElement[i];
-            }
-        }
-
-        var ora = sElement[indiceOre + 1];
-
-        var data = undefined;
-
-        if (indiceOre + 4 === sElement.length - 1)
-        {
-            var dataAttuale = new Date();
-            var mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
-            var mese = mesi.indexOf(sElement[indiceOre + 4]) + 1;
-            var anno = (mese >= dataAttuale.getMonth()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-            var giorno = sElement[indiceOre + 3];
-            data = anno + "-" + mese + "-" + giorno;
-        }
-        
-        console.log(summary+" "+ora+" "+data);
-        
-        if (summary !== undefined && ora !== undefined && data !== undefined)
-        {
-            return {"summary": summary, "data": data, "ora": ora};
-        } 
-        else
-        {
-            return undefined;
+            summary += " " + sElement[i];
         }
     }
-}
+
+    var ora = sElement[indiceOre + 1];
+
+    var data = undefined;
+
+    if (indiceOre + 4 === sElement.length - 1)
+    {
+        var dataAttuale = new Date();
+        var mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
+        var mese = mesi.indexOf(sElement[indiceOre + 4]) + 1;
+        var anno = (mese >= dataAttuale.getMonth()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        var giorno = sElement[indiceOre + 3];
+        data = anno + "-" + mese + "-" + giorno;
+    }
+
+    if (summary !== undefined && ora !== undefined && data !== undefined)
+    {
+        return {"summary": summary, "data": data, "ora": ora};
+    } else
+    {
+        return undefined;
+    }
+};
