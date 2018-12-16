@@ -91,10 +91,10 @@ function Avatar()
     this.boccaAperta.setAttribute("display", "none");
     
     this.movimentoBocca= undefined;
-    setInterval(this.apriOcchi, 2510);
-    setInterval(this.chiudiOcchi, 2500);
     
-    this.oraInizioProgramma= new Date().getTime();
+    setInterval(this.chiudiOcchi, 5000);
+    
+
     this.stoParlando= false;
     
     var divResponse= document.createElement("div");
@@ -151,6 +151,8 @@ Avatar.prototype.chiudiOcchi= function()
 {
     window.avatar.occhiAperti.setAttribute("display", "none");
     window.avatar.occhiChiusi.setAttribute("display", "block");
+    setTimeout(window.avatar.apriOcchi, 50);
+    
 };
 
 Avatar.prototype.apriOcchi= function()
