@@ -1,12 +1,12 @@
 window.onload= function(){
     this.avatar= new Avatar();
     
-    var $window = $(window);
+    /*var $window = $(window);
     $window.on('load', function () {
             window.setTimeout(function () {
                 $body.removeClass('is-loading');
             }, 100);
-    });
+    });*/
     
 //    var $footer = $('#footer');
 //    
