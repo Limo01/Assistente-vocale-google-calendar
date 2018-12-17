@@ -12,7 +12,7 @@ var SCOPES = "https://www.googleapis.com/auth/calendar";
 //var authorizeButton = document.getElementById('authorize_button');
 var authorizeButton = document.getElementById('loginButton');
 authorizeButton.onclick = handleAuthClick;
-var signoutButton = document.getElementById('signout_button');
+//var signoutButton = document.getElementById('signout_button');
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -38,7 +38,7 @@ function initClient() {
         // Handle the initial sign-in state.
         updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
         authorizeButton.onclick = handleAuthClick;
-        signoutButton.onclick = handleSignoutClick;
+        //signoutButton.onclick = handleSignoutClick;
     }, function (error) {
         appendPre(JSON.stringify(error, null, 2));
     });
@@ -51,7 +51,7 @@ function initClient() {
 function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
-        signoutButton.style.display = 'block';
+        //signoutButton.style.display = 'block';
         //document.getElementById('pagina').style.display = 'block';
         
                 //animazione login
@@ -62,7 +62,7 @@ function updateSigninStatus(isSignedIn) {
     else
     {
         authorizeButton.style.display = 'block';
-        signoutButton.style.display = 'none';
+        //signoutButton.style.display = 'none';
         document.getElementById('pagina').style.display = 'none';
     }
 }
