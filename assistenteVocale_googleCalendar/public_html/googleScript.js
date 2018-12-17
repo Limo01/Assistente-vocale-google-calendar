@@ -11,7 +11,9 @@ var SCOPES = "https://www.googleapis.com/auth/calendar";
 
 //var authorizeButton = document.getElementById('authorize_button');
 var authorizeButton = document.getElementById('loginButton');
-authorizeButton.onclick = handleAuthClick;
+//authorizeButton.onclick = handleAuthClick;
+var signoutButton = document.getElementById('signOutButton');
+//signoutButton.onclick= handleSignoutClick;
 //var signoutButton = document.getElementById('signout_button');
 
 /**
@@ -38,7 +40,7 @@ function initClient() {
         // Handle the initial sign-in state.
         updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
         authorizeButton.onclick = handleAuthClick;
-        //signoutButton.onclick = handleSignoutClick;
+        signoutButton.onclick = handleSignoutClick;
     }, function (error) {
         appendPre(JSON.stringify(error, null, 2));
     });
