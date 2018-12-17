@@ -12,7 +12,7 @@ var SCOPES = "https://www.googleapis.com/auth/calendar";
 //var authorizeButton = document.getElementById('authorize_button');
 var authorizeButton = document.getElementById('loginButton');
 //authorizeButton.onclick = handleAuthClick;
-var signoutButton = document.getElementById('signOutButton');
+var signoutButton = document.getElementById('logOutButton');
 //signoutButton.onclick= handleSignoutClick;
 //var signoutButton = document.getElementById('signout_button');
 
