@@ -92,8 +92,7 @@ function Avatar()
     
     this.movimentoBocca= undefined;
     
-    setInterval(this.chiudiOcchi, 5000);
-    
+    setInterval(this.chiudiOcchi, 5000);   
 
     this.stoParlando= false;
     

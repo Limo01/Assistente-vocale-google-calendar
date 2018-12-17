@@ -13,15 +13,27 @@ https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
         <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href="main.css" />
     </head>
     <body>
         <p>Google Calendar login</p>
         <!--Add buttons to initiate auth sequence and sign out-->
-        <button id="authorize_button" style="display: none;">Authorize</button>
-        <button id="signout_button" style="display: none;">Sign Out</button>
+        <!--<button id="authorize_button" style="display: none;">Authorize</button>
+        <button id="signout_button" style="display: none;">Sign Out</button>-->
         <pre id="content" style="white-space: pre-wrap;"></pre>
 
-        <div id="pagina" class="container" style="display:none"> 
+        <header id="header">
+            <div class="inner">
+                <div class="content">
+                    <h1>Google calendar assistant</h1>
+                    <h2>Login and enjoy</h2>
+                    <a href="#" id="loginButton" class="button big alt"><span>Login</span></a>
+                </div>
+                <a href="#" class="button hidden"></a>
+            </div>
+        </header>
+
+        <div id="pagina" class="container">
             <h1>Assistente Google calendar</h1>
             <h3 class="no-browser-support">Sorry, this browser doesn't support the Web Speech API.</h3>
 
@@ -36,6 +48,18 @@ https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript
                 <p id="recording-instructions">Press the <strong>Start Recognition</strong> button and allow access.</p>
             </div>
         </div>
+
+        <footer id="footer">
+            <a href="#" class="info fa fa-info-circle"><span>About</span></a>
+            <div class="inner">
+                <div class="scelta_calendario">
+                    <h3>Scegli su che calendario lavorare</h3>
+                </div>
+                <div class="lista_comandi">
+                    <h3>Sintassi dei comandi disponibili</h3>
+                </div>
+            </div>
+        </footer>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <script src="main.js"></script>

@@ -9,7 +9,9 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 // included, separated by spaces.
 var SCOPES = "https://www.googleapis.com/auth/calendar";
 
-var authorizeButton = document.getElementById('authorize_button');
+//var authorizeButton = document.getElementById('authorize_button');
+var authorizeButton = document.getElementById('loginButton');
+authorizeButton.onclick = handleAuthClick;
 var signoutButton = document.getElementById('signout_button');
 
 /**
@@ -51,7 +53,13 @@ function updateSigninStatus(isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
         document.getElementById('pagina').style.display = 'block';
-    } else {
+        
+        //animazione login
+        var t = jQuery(document.getElementById("header")), button = t.find('.button');
+        t.toggleClass('hide');
+    } 
+    else
+    {
         authorizeButton.style.display = 'block';
         signoutButton.style.display = 'none';
         document.getElementById('pagina').style.display = 'none';

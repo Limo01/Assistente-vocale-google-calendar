@@ -1,5 +1,27 @@
 window.onload= function(){
     this.avatar= new Avatar();
+    
+    var $window = $(window);
+    $window.on('load', function () {
+            window.setTimeout(function () {
+                $body.removeClass('is-loading');
+            }, 100);
+    });
+    
+//    var $footer = $('#footer');
+//    
+//    $footer.each(function () {
+//
+//            var t = jQuery(this),
+//                    inner = t.find('.inner'),
+//                    button = t.find('.info');
+//
+//            button.click(function (e) {
+//                t.toggleClass('show');
+//                e.preventDefault();
+//            });
+//
+//        });
 };
 
 /*-----------------------------
