@@ -53,12 +53,10 @@ function updateSigninStatus(isSignedIn) {
         authorizeButton.style.display = 'none';
         //signoutButton.style.display = 'block';
         
-                //animazione login
-        var t = jQuery(document.getElementById("header"))//,
+        //animazione login
+        var t = jQuery(document.getElementById("header"))
         console.log(t);
         t.toggleClass('hide');
-        var button = document.getElementById("loginButton");
-        button.innerHTML="Log out";
         document.getElementById('pagina').style.display = 'block';
     } 
     else
