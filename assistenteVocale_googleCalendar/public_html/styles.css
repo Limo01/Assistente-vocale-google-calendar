@@ -116,5 +116,6 @@ button{
 
 #loginButton
 {
-    display: ""
+    width: 40%;
+    margin: auto;
 }
