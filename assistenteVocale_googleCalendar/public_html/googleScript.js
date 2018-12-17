@@ -81,7 +81,7 @@ function handleAuthClick(event) {
  */
 function handleSignoutClick(event) {
     gapi.auth2.getAuthInstance().signOut();
-    setTimeout(function(){window.location.replace("https://limo01.github.io/assistenteVocale_googleCalendar/public_html/")}, 300);
+    window.location.replace("https://limo01.github.io/assistenteVocale_googleCalendar/public_html/")
 }
 
 /**
