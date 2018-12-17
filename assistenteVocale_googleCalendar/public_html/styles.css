@@ -114,4 +114,7 @@ button{
     margin: auto;
 }
 
-#loginButton{}
+#loginButton
+{
+    display: ""
+}
