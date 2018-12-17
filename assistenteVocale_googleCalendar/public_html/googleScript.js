@@ -52,7 +52,7 @@ function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
         signoutButton.style.display = 'block';
-        document.getElementById('pagina').style.display = 'block';
+        //document.getElementById('pagina').style.display = 'block';
         
                 //animazione login
         var t = jQuery(document.getElementById("header"))//, button = t.find('.button');
