@@ -54,8 +54,9 @@ function updateSigninStatus(isSignedIn) {
         signoutButton.style.display = 'block';
         document.getElementById('pagina').style.display = 'block';
         
-        //animazione login
-        var t = jQuery(document.getElementById("header")), button = t.find('.button');
+                //animazione login
+        var t = jQuery(document.getElementById("header"))//, button = t.find('.button');
+        console.log(t);
         t.toggleClass('hide');
     } 
     else
