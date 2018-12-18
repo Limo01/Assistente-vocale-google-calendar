@@ -149,9 +149,16 @@ function addEventToCalendar(data, ora, evento)
     });
 
     request.execute(function (event) {
-        appendPre('Event created: ' + event.htmlLink);
-        var button= document.getElementById("responseButton");
-        button.onclick= function(){window.location.href= event.htmlLink;};
-        button.style.display="block";
+        if(event.htmlLink!==undefined)
+        {
+            appendPre('Event created: ' + event.htmlLink);
+            var button= document.getElementById("responseButton");
+            button.onclick= function(){window.location.href= event.htmlLink;};
+            button.style.display="block";
+        }
+        else
+        {
+            window.avatar.say("Sintassi del comando errata");
+        }
     });
 }
