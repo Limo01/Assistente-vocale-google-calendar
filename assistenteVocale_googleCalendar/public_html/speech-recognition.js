@@ -48,7 +48,7 @@ function interpret(line) {
     if (line.indexOf("prossimi eventi") >= 0)
     {
         listUpcomingEvents();
-    } else if (line.indexOf("Inserisci") === 0)
+    } else if (line.indexOf("Aggiungi") === 0 || line.indexOf("Inserisci") === 0)
     {
         var dati = parseEvent(line);
         if (dati !== undefined)
