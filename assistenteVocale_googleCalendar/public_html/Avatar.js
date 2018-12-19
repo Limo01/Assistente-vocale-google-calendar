@@ -98,10 +98,17 @@ function Avatar()
     
     var divResponse= document.createElement("div");
     divResponse.setAttribute("id", "response");
+    
     var responseButton= document.createElement("button");
     responseButton.innerHTML="Vai all'evento";
     responseButton.setAttribute("id", "responseButton");
+    
+    var responseSpan= document.createElement("button");
+    responseSpan.innerHTML="";
+    responseSpan.setAttribute("id", "responseSpan");
+    
     divResponse.appendChild(responseButton);
+    divResponse.appendChild(responseSpan);
     document.getElementById("pagina").appendChild(divResponse);
 };
 

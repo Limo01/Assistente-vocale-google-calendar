@@ -114,6 +114,12 @@ button{
     margin: auto;
 }
 
+#responseSpan
+{
+    display: none;
+    margin: auto;
+}
+
 #loginButton
 {
     width: 40%;

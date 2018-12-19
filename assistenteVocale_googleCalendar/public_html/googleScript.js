@@ -56,7 +56,7 @@ function updateSigninStatus(isSignedIn) {
         //signoutButton.style.display = 'block';
         
         //animazione login
-        var t = jQuery(document.getElementById("header"))
+        var t = jQuery(document.getElementById("header"));
         console.log(t);
         t.toggleClass('hide');
         document.getElementById('pagina').style.display = 'block';
@@ -91,10 +91,10 @@ function handleSignoutClick(event) {
  * @param {string} message Text to be placed in pre element.
  */
 function appendResponse(message) {
-    var pre = document.getElementById('response');
-    pre.innerHTML= "";
+    var pre = document.getElementById('responseSpan');
     var textContent = document.createTextNode(message + '\n');
-    pre.appendChild(textContent);
+    pre.innerHTML= textContent;
+    pre.style.display="block";
 }
 
 /**
@@ -153,6 +153,7 @@ function addEventToCalendar(data, ora, evento)
         if(event.htmlLink!==undefined)
         {
             //appendPre('Event created: ' + event.htmlLink);
+            document.getElementById("responseSpan").style.display= "none";
             var button= document.getElementById("responseButton");
             button.onclick= function(){window.location.href= event.htmlLink;};
             button.style.display="block";
