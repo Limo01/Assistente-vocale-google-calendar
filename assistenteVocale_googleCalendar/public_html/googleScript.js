@@ -91,9 +91,10 @@ function handleSignoutClick(event) {
  * @param {string} message Text to be placed in pre element.
  */
 function appendResponse(message) {
+    document.getElementById("responseButton").style.display= "none";
     var pre = document.getElementById('responseSpan');
-    var textContent = document.createTextNode(message + '\n');
-    pre.innerHTML= textContent;
+    //var textContent = document.createTextNode(message + '\n');
+    pre.innerHTML= message+'\n';
     pre.style.display="block";
 }
 

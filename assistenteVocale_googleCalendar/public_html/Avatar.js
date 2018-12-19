@@ -103,7 +103,7 @@ function Avatar()
     responseButton.innerHTML="Vai all'evento";
     responseButton.setAttribute("id", "responseButton");
     
-    var responseSpan= document.createElement("button");
+    var responseSpan= document.createElement("span");
     responseSpan.innerHTML="";
     responseSpan.setAttribute("id", "responseSpan");
     
