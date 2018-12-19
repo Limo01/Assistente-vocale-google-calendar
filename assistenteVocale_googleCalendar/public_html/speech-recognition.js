@@ -59,8 +59,19 @@ function interpret(line) {
     }
     else if (line==="Opzioni" || line==="Comandi")
     {
-        document.getElementById("infoButton").onclick();
-        window.avatar.say("Eccoli!");
+        var footer= document.getElementById("footer");
+        if(footer.attributes.class.nodeValue===undefined)
+        {
+            document.getElementById("infoButton").onclick();
+            window.avatar.say("Eccoli!");
+        }
+        else
+        {
+            window.avatar.say("Te li sto già mostrando");
+            document.getElementById("infoButton").onclick();
+            document.getElementById("infoButton").onclick();
+        }
+        
     }
 }
 
