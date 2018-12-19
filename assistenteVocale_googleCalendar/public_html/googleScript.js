@@ -130,7 +130,7 @@ function listUpcomingEvents() {
                     stringEvent+= event.summary + ' (' + when.substring(0, 10) + ' ' + when.substring(12, 18) + ')';
                 }
                 //appendResponse(event.summary + ' (' + when + ')');
-                
+                appendResponse(stringEvent);
             }
         } else {
             appendResponse('No upcoming events found.');
