@@ -64,7 +64,7 @@ function interpret(line) {
         {
             window.avatar.say("Te li sto già mostrando");
             document.getElementById("infoButton").onclick();
-            document.getElementById("infoButton").onclick();
+            setTimeout(document.getElementById("infoButton").onclick, 200);
         }
         else
         {
