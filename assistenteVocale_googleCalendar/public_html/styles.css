@@ -13,6 +13,8 @@ button:focus {
 
 button{
     margin: 4px 2px;
+	background-color: #4285f4;
+	font-family: 'Futura', sans-serif;
 }
 
 .container {
@@ -124,4 +126,23 @@ button{
 {
     width: 40%;
     margin: auto;
+}
+
+#title{
+	font-family: 'Futura', sans-serif;
+	font-size: 40px;
+}
+
+#lista_comandi{
+	margin-left: 10%;
+	h3{
+		color: white;
+	}
+}
+
+#scelta_calendario{
+	margin-right: 10%;
+	h3{
+		color: white;
+	}
 }

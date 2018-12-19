@@ -16,12 +16,6 @@ https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript
         <link rel="stylesheet" href=".\assets\css\main.css" />
     </head>
     <body>
-        <!--<p>Google Calendar login</p>
-        <!--Add buttons to initiate auth sequence and sign out-->
-        <!--<button id="authorize_button" style="display: none;">Authorize</button>
-        <button id="signout_button" style="display: none;">Sign Out</button>-->
-        <!--<pre id="content" style="white-space: pre-wrap;"></pre>-->
-
         <header id="header">
             <div class="inner">
                 <div class="content">
@@ -34,7 +28,7 @@ https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript
         </header>
 
         <div id="pagina" class="container" style="display:none">
-            <h1>Assistente Google calendar</h1>
+            <h1 id="title"><strong>Assistente Google calendar></strong></h1>
             <h3 class="no-browser-support">Sorry, this browser doesn't support the Web Speech API.</h3>
 
             <div class="app">
@@ -52,11 +46,14 @@ https://tutorialzine.com/2017/08/converting-from-speech-to-text-with-javascript
         <footer id="footer" class="">
             <a href="#" class="info fa fa-info-circle" id="infoButton"><span>About</span></a>
             <div class="inner">
-                <div class="scelta_calendario">
+                <div id="scelta_calendario">
                     <h3>Scegli su che calendario lavorare</h3>
                 </div>
-                <div class="lista_comandi">
+                <div id="lista_comandi">
                     <h3>Sintassi dei comandi disponibili</h3>
+					<p>Aggiungi/Inserisci *nome dell'evento* ore *ora dell'evento* il *numero del mese* *mese (nome per esteso)*<br>
+					   Esempio: "Inserisci verifica di matematica il 25 gennaio"
+					</p>
                 </div>
             </div>
         </footer>

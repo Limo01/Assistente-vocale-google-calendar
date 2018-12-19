@@ -60,16 +60,16 @@ function interpret(line) {
     else if (line==="Opzioni" || line==="Comandi")
     {
         var footer= document.getElementById("footer");
-        if(footer.attributes.class.nodeValue===undefined)
-        {
-            document.getElementById("infoButton").onclick();
-            window.avatar.say("Eccoli!");
-        }
-        else
+        if(footer.attributes.class.nodeValue==="show")
         {
             window.avatar.say("Te li sto già mostrando");
             document.getElementById("infoButton").onclick();
             document.getElementById("infoButton").onclick();
+        }
+        else
+        {
+            document.getElementById("infoButton").onclick();
+            window.avatar.say("Eccoli!");
         }
         
     }
