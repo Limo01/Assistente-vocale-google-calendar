@@ -114,15 +114,23 @@ function listUpcomingEvents() {
     }).then(function (response) {
         var events = response.result.items;
         appendResponse('Upcoming events:');
-
+        
+        var stringEvent="";
+        
         if (events.length > 0) {
             for (i = 0; i < events.length; i++) {
                 var event = events[i];
                 var when = event.start.dateTime;
                 if (!when) {
                     when = event.start.date;
+                    stringEvent+= event.summary + ' (' + when + ')';
                 }
-                appendResponse(event.summary + ' (' + when + ')')
+                else
+                {
+                    stringEvent+= event.summary + ' (' + when.substring(0, 10) + ' ' + when.substring(12, 18) + ')';
+                }
+                //appendResponse(event.summary + ' (' + when + ')');
+                
             }
         } else {
             appendResponse('No upcoming events found.');
