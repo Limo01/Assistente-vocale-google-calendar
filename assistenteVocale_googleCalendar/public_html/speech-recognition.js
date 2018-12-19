@@ -45,11 +45,11 @@ recognition.onerror = function (event) {
  @param String line
  */
 function interpret(line) {
-    if (line.indexOf("Prossimi eventi") >= 0)
+    if (line=== "prossimi eventi" || line=== "Prossimi eventi")
     {
         listUpcomingEvents();
     } 
-    else if (line.indexOf("Aggiungi") === 0 || line.indexOf("Inserisci") === 0)
+    else if (line.indexOf("aggiungi") === 0 || line.indexOf("Aggiungi") === 0 || line.indexOf("inserisci") === 0 || line.indexOf("Inserisci") === 0)
     {
         var dati = parseEvent(line);
         if (dati !== undefined)
@@ -57,7 +57,7 @@ function interpret(line) {
             addEventToCalendar(dati.data, dati.ora, dati.summary);
         }
     }
-    else if (line==="Opzioni" || line==="Comandi")
+    else if (line==="opzioni" || line==="Opzioni" || line==="comandi" || line==="Comandi")
     {
         var footer= document.getElementById("footer");
         if(footer.attributes.class.nodeValue==="show")
