@@ -57,7 +57,7 @@ function interpret(line) {
             addEventToCalendar(dati.data, dati.ora, dati.summary);
         }
     }
-    else if (line.equals("Opzioni") || line.equals("Comandi"))
+    else if (line==="Opzioni" || line==="Comandi")
     {
         document.getElementById("infoButton").onclick();
         window.avatar.say("Eccoli!");
