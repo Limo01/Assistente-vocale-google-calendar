@@ -127,7 +127,7 @@ function listUpcomingEvents() {
                 }
                 else
                 {
-                    stringEvent+= event.summary + ' (' + when.substring(0, 10) + ' ' + when.substring(12, 18) + ')';
+                    stringEvent+= event.summary + ' (' + when.substring(0, 10) + ' ' + when.substring(12, 18) + ')' + '\n';
                 }
                 //appendResponse(event.summary + ' (' + when + ')');
                 appendResponse('Upcoming events:'+'\n'+stringEvent);
