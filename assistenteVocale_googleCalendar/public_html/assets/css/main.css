@@ -602,8 +602,8 @@
 		input[type="email"]:focus,
 		select:focus,
 		textarea:focus {
-			border-color: #e74c3c;
-			box-shadow: 0 0 0 1px #e74c3c;
+			border-color: #4285f4;
+			box-shadow: 0 0 0 1px #4285f4;
 		}
 
 	.select-wrapper:before {
