@@ -57,7 +57,6 @@ function updateSigninStatus(isSignedIn) {
         
         //animazione login
         var t = jQuery(document.getElementById("header"));
-        console.log(t);
         t.toggleClass('hide');
         document.getElementById('pagina').style.display = 'block';
     } 
@@ -113,11 +112,12 @@ function listUpcomingEvents() {
         'orderBy': 'startTime'
     }).then(function (response) {
         var events = response.result.items;
-        appendResponse('Upcoming events:');
+        //appendResponse('Upcoming events:');
         
         var stringEvent="";
         
         if (events.length > 0) {
+            console.log("length>0")
             for (i = 0; i < events.length; i++) {
                 var event = events[i];
                 var when = event.start.dateTime;
@@ -130,9 +130,10 @@ function listUpcomingEvents() {
                     stringEvent+= event.summary + ' (' + when.substring(0, 10) + ' ' + when.substring(12, 18) + ')';
                 }
                 //appendResponse(event.summary + ' (' + when + ')');
-                appendResponse(stringEvent);
+                appendResponse('Upcoming events:'+'\n'+stringEvent);
             }
         } else {
+            console.log("length<0");
             appendResponse('No upcoming events found.');
         }
     });
