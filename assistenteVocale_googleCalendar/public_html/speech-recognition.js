@@ -48,14 +48,19 @@ function interpret(line) {
     if (line.indexOf("Prossimi eventi") >= 0)
     {
         listUpcomingEvents();
-    } else if (line.indexOf("Aggiungi") === 0 || line.indexOf("Inserisci") === 0)
+    } 
+    else if (line.indexOf("Aggiungi") === 0 || line.indexOf("Inserisci") === 0)
     {
         var dati = parseEvent(line);
         if (dati !== undefined)
         {
             addEventToCalendar(dati.data, dati.ora, dati.summary);
         }
-        //else window.avatar.say("Sintassi del comando errata");
+    }
+    else if (line.equals("Opzioni") || line.equals("Comandi"))
+    {
+        document.getElementById("infoButton").onclick();
+        window.avatar.say("Eccoli!");
     }
 }
 
