@@ -93,7 +93,7 @@ function appendResponse(message) {
     document.getElementById("responseButton").style.display= "none";
     var pre = document.getElementById('responseSpan');
     //var textContent = document.createTextNode(message + '\n');
-    pre.innerHTML= message+'\n';
+    pre.innerHTML= message;
     pre.style.display="block";
 }
 
@@ -117,23 +117,21 @@ function listUpcomingEvents() {
         var stringEvent="";
         
         if (events.length > 0) {
-            console.log("length>0")
             for (i = 0; i < events.length; i++) {
                 var event = events[i];
                 var when = event.start.dateTime;
                 if (!when) {
                     when = event.start.date;
-                    stringEvent+= event.summary + ' (' + when + ')';
+                    stringEvent+= event.summary + ' (' + when + ')' + '<br>';
                 }
                 else
                 {
-                    stringEvent+= event.summary + ' (' + when.substring(0, 10) + ' ' + when.substring(12, 18) + ')' + '\n';
+                    stringEvent+= event.summary + ' (' + when.substring(0, 10) + ' ' + when.substring(11, 17) + ')' + '<br>';
                 }
                 //appendResponse(event.summary + ' (' + when + ')');
-                appendResponse('Upcoming events:'+'\n'+stringEvent);
+                appendResponse('Upcoming events:'+'<br>'+stringEvent);
             }
         } else {
-            console.log("length<0");
             appendResponse('No upcoming events found.');
         }
     });
