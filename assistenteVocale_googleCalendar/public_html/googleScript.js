@@ -112,7 +112,6 @@ function listUpcomingEvents() {
         'orderBy': 'startTime'
     }).then(function (response) {
         var events = response.result.items;
-        //appendResponse('Upcoming events:');
         
         var stringEvent="";
         
@@ -126,13 +125,13 @@ function listUpcomingEvents() {
                 }
                 else
                 {
-                    stringEvent+= event.summary + ' (' + when.substring(0, 10) + ' ' + when.substring(11, 17) + ')' + '<br>';
+                    stringEvent+= event.summary + ' (' + when.substring(0, 10) + ' ore ' + when.substring(11, 17) + ')' + '<br>';
                 }
-                //appendResponse(event.summary + ' (' + when + ')');
                 appendResponse('Upcoming events:'+'<br>'+stringEvent);
             }
         } else {
             appendResponse('No upcoming events found.');
+            window.avatar.say("Non hai eventi nel tuo calendario.");
         }
     });
 }
@@ -160,11 +159,11 @@ function addEventToCalendar(data, ora, evento)
     request.execute(function (event) {
         if(event.htmlLink!==undefined)
         {
-            //appendPre('Event created: ' + event.htmlLink);
             document.getElementById("responseSpan").style.display= "none";
             var button= document.getElementById("responseButton");
             button.onclick= function(){window.location.href= event.htmlLink;};
             button.style.display="block";
+            window.avatar.say("Ho aggiunto il tuo evento al calendario. Clicca il bottone per visualizzarlo.");
         }
         else
         {
