@@ -42,7 +42,7 @@ function initClient() {
         authorizeButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
     }, function (error) {
-        appendPre(JSON.stringify(error, null, 2));
+        appendResponse(JSON.stringify(error, null, 2));
     });
 }
 
@@ -90,8 +90,8 @@ function handleSignoutClick(event) {
  *
  * @param {string} message Text to be placed in pre element.
  */
-function appendPre(message) {
-    var pre = document.getElementById('content');
+function appendResponse(message) {
+    var pre = document.getElementById('response');
     var textContent = document.createTextNode(message + '\n');
     pre.appendChild(textContent);
 }
@@ -111,7 +111,7 @@ function listUpcomingEvents() {
         'orderBy': 'startTime'
     }).then(function (response) {
         var events = response.result.items;
-        appendPre('Upcoming events:');
+        appendResponse('Upcoming events:');
 
         if (events.length > 0) {
             for (i = 0; i < events.length; i++) {
@@ -120,10 +120,10 @@ function listUpcomingEvents() {
                 if (!when) {
                     when = event.start.date;
                 }
-                appendPre(event.summary + ' (' + when + ')')
+                appendResponse(event.summary + ' (' + when + ')')
             }
         } else {
-            appendPre('No upcoming events found.');
+            appendResponse('No upcoming events found.');
         }
     });
 }
@@ -151,7 +151,7 @@ function addEventToCalendar(data, ora, evento)
     request.execute(function (event) {
         if(event.htmlLink!==undefined)
         {
-            appendPre('Event created: ' + event.htmlLink);
+            //appendPre('Event created: ' + event.htmlLink);
             var button= document.getElementById("responseButton");
             button.onclick= function(){window.location.href= event.htmlLink;};
             button.style.display="block";
