@@ -92,6 +92,7 @@ function handleSignoutClick(event) {
  */
 function appendResponse(message) {
     var pre = document.getElementById('response');
+    pre.innerHTML= "";
     var textContent = document.createTextNode(message + '\n');
     pre.appendChild(textContent);
 }
