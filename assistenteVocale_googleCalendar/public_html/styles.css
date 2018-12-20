@@ -134,15 +134,19 @@ button{
 }
 
 #lista_comandi{
-	margin-left: 10%;
-	h3{
-		color: white;
-	}
+    margin-left: 10%;
+}
+
+.whiteColor
+{
+    color: white;
+}
+
+.bold
+{
+    font-weight: 500;
 }
 
 #scelta_calendario{
-	margin-right: 10%;
-	h3{
-		color: white;
-	}
+    margin-right: 10%;
 }
