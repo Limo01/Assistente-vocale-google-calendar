@@ -190,6 +190,11 @@ function getCalendarsList()
             option.setAttribute("value", calendars[i].id);
             option.innerHTML= calendars[i].summary;
             select.appendChild(option);
+            
+            if(calendars[i].primary!==undefined && calendars[i].primary=== true)
+            {
+                select.value= calendars[i].id;
+            }
         }
         document.getElementById("scelta_calendario").appendChild(select);
     });
