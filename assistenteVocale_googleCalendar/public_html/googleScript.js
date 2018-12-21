@@ -106,7 +106,8 @@ function appendResponse(message) {
  */
 function listUpcomingEvents() {
     gapi.client.calendar.events.list({
-        'calendarId': 'primary',
+        //'calendarId': 'primary',
+        'calendarId': document.getElementById("selectCalendar").value,
         'timeMin': (new Date()).toISOString(),
         'showDeleted': false,
         'singleEvents': true,
@@ -154,7 +155,8 @@ function addEventToCalendar(data, ora, evento)
     };
 
     var request = gapi.client.calendar.events.insert({
-        'calendarId': "primary",
+        //'calendarId': "primary",
+        'calendarId': document.getElementById("selectCalendar").value,
         'resource': event
     });
 

@@ -150,3 +150,8 @@ button{
 #scelta_calendario{
     margin-right: 10%;
 }
+
+#selectCalendar
+{
+    font-weight: 500;
+}

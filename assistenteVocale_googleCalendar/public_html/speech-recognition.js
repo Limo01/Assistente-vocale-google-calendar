@@ -52,9 +52,13 @@ function interpret(line) {
     else if (line.indexOf("aggiungi") === 0 || line.indexOf("Aggiungi") === 0 || line.indexOf("inserisci") === 0 || line.indexOf("Inserisci") === 0)
     {
         var dati = parseEvent(line);
-        if (dati !== undefined)
+        if (dati !== undefined && calendari[document.getElementById("selectCalendar").value].accessRole!=="reader")
         {
             addEventToCalendar(dati.data, dati.ora, dati.summary);
+        }
+        else
+        {
+            window.avatar.say("Non hai i permessi di scrittura sul calendario selezionato");
         }
     }
     else if (line==="opzioni" || line==="Opzioni" || line==="comandi" || line==="Comandi")
