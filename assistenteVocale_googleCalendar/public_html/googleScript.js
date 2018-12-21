@@ -16,7 +16,7 @@ var signoutButton = document.getElementById('logOutButton');
 //signoutButton.onclick= handleSignoutClick;
 //var signoutButton = document.getElementById('signout_button');
 
-var calendari= undefined;//array che contiene le informazioni per ogni calendario
+var calendari= new Array();//array che contiene le informazioni per ogni calendario
 
 /**
  *  On load, called to load the auth2 library and API client library.
