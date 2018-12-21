@@ -179,12 +179,18 @@ function getCalendarsList()
     gapi.client.calendar.calendarList.list({}
     ).then(function (response) {
         var calendars = response.result.items;
-        console.log(calendari);
+        var select= document.createElement("select");
+        select.setAttribute("id", "selectCalendar");
         
         for(var i=0; i<calendars.length; i++)
         {
-            calendari[calendars[i].summary]= {"id":calendars[i].id, "accessRole":calendars[i].accessRole};
+            calendari[calendars[i].id]= {"summary":calendars[i].summary, "accessRole":calendars[i].accessRole};
+            
+            var option= document.createElement("option");
+            option.setAttribute("value", calendars[i].id);
+            option.innerHTML= calendars[i].summary;
+            select.appendChild(option);
         }
-        console.log(calendari);
+        document.getElementById("scelta_calendario").appendChild(select);
     });
 }
