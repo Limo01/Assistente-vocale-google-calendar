@@ -16,6 +16,8 @@ var signoutButton = document.getElementById('logOutButton');
 //signoutButton.onclick= handleSignoutClick;
 //var signoutButton = document.getElementById('signout_button');
 
+var calendari= undefined;//array che contiene le informazioni per ogni calendario
+
 /**
  *  On load, called to load the auth2 library and API client library.
  */
@@ -178,5 +180,11 @@ function getCalendarsList()
     ).then(function (response) {
         var calendars = response.result.items;
         console.log(calendars);
+        
+        for(var i=0; i<calendars.length; i++)
+        {
+            calendari[calendars[i].summary]= {"id":calendars[i].id, "accessRole":calendars[i].accessRole};
+        }
+        console.log(calendari);
     });
 }
