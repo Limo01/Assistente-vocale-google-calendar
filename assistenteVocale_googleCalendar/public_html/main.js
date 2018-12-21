@@ -15,6 +15,7 @@ window.onload= function(){
             footer.attributes.class.nodeValue= "show";
         }
     };
+    getCalendarsList();
 };
 
 /*-----------------------------

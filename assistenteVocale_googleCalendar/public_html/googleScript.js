@@ -171,3 +171,12 @@ function addEventToCalendar(data, ora, evento)
         }
     });
 }
+
+function getCalendarsList()
+{
+    gapi.client.calendar.calendarList.list(
+    ).then(function (response) {
+        var calendars = response.result.items;
+        console.log(calendars);
+    });
+}
