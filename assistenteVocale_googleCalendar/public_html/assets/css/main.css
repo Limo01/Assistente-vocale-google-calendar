@@ -1340,9 +1340,9 @@
 				}
 
 				#header.hide .button.hidden:before, #header.preview .button.hidden:before {
-					content: '\f015';
-					color: #FFF;
-					font-size: 1.5em;
+                                    content: "\f08b";
+                                    color: #FFF;
+                                    font-size: 1.8em;
 				}
 
 				#header.hide .button.hidden span, #header.preview .button.hidden span {
