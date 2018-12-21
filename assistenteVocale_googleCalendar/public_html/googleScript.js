@@ -53,17 +53,17 @@ function initClient() {
 function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
-        //signoutButton.style.display = 'block';
         
         //animazione login
         var t = jQuery(document.getElementById("header"));
         t.toggleClass('hide');
         document.getElementById('pagina').style.display = 'block';
+        
+        getCalendarsList();
     } 
     else
     {
         authorizeButton.style.display = 'block';
-        //signoutButton.style.display = 'none';
         document.getElementById('pagina').style.display = 'none';
     }
 }
@@ -174,7 +174,7 @@ function addEventToCalendar(data, ora, evento)
 
 function getCalendarsList()
 {
-    gapi.client.calendar.calendarList.list(
+    gapi.client.calendar.calendarList.list({}
     ).then(function (response) {
         var calendars = response.result.items;
         console.log(calendars);
