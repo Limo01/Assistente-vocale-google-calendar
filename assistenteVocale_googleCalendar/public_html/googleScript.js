@@ -179,7 +179,7 @@ function getCalendarsList()
     gapi.client.calendar.calendarList.list({}
     ).then(function (response) {
         var calendars = response.result.items;
-        console.log(calendars);
+        console.log(calendari);
         
         for(var i=0; i<calendars.length; i++)
         {
