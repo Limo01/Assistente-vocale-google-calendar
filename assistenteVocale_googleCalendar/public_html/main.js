@@ -61,10 +61,7 @@ $('#reset-btn').on('click', function(e) {
     noteTextarea.val('');
     noteContent="";
     
-    if (document.contains(document.getElementById("stud-img")))
-        document.getElementById("stud-img").remove();
-    if (document.contains(document.getElementById("demo")))
-        document.getElementById("demo").remove();
+    document.getElementById("responseSpan").innerHTML= "";
 });
 
 $('#speak-btn').on('click', function(e) {
