@@ -76,17 +76,6 @@ button{
     margin-bottom: 40px;
 }
 
-@media (max-width: 768px) {
-    .container {
-        padding: 50px 25px;
-    }
-
-    button {
-        margin-bottom: 10px;
-    }
-
-}   
-
 #avatar
 {
     float: right;
@@ -94,12 +83,6 @@ button{
 
 .app{
 	padding-top: 50px;
-}
-
-/* -- Demo ads -- */
-
-@media (max-width: 1200px) {
-    #bsaHolder{ display:none;}
 }
 
 #response
@@ -154,6 +137,70 @@ button{
 #selectCalendar
 {
     font-weight: 500;
+}
+
+@media (max-width: 900px) 
+{   
+    .input-single
+    {
+        width: 80%;
+        margin: 5% auto;
+    }
+    
+    .container {
+        padding: 50px 0px 0px 0px;
+    }
+    
+    .app{
+        margin: 0px auto;
+        float: none;
+        width: 100%;
+    }
+    
+    #avatar{
+        float: none;
+        width: 100%;
+    }
+    
+    #recording-instructions{
+        margin: 15px auto 10px;
+    }
+    
+    #scelta_calendario{
+        margin-right: 0%;
+    }
+    
+    #lista_comandi{
+        display: none;
+    }
+
+    button
+    {
+        margin-bottom: 10px;
+        padding: 0px 5px;
+    }
+    
+    #header.hide .button.hidden
+    {
+        padding-top: 1em;
+    }
+    
+    #header.hide .button.hidden:before, #header.preview .button.hidden:before
+    {
+        content: "\f08b";
+        color: #FFF;
+        font-size: 1.5em;
+    }
+}  
+
+@media (min-width: 400px)
+{
+    #avatar
+    {
+        float: none;
+        margin: 0 auto;
+        width: 400px;
+    }
 }
 
 .github-corner:hover .octo-arm

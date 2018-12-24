@@ -44,7 +44,8 @@ function initClient() {
         authorizeButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
     }, function (error) {
-        appendResponse(JSON.stringify(error, null, 2));
+        //appendResponse(JSON.stringify(error, null, 2));
+        appendResponse("Ci sono stati errori con le API Google!");
     });
 }
 
