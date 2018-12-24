@@ -61,6 +61,7 @@ function updateSigninStatus(isSignedIn) {
         var t = jQuery(document.getElementById("header"));
         t.toggleClass('hide');
         document.getElementById('pagina').style.display = 'block';
+        document.getElementById('footer').style.display= 'block';
         
         getCalendarsList();
     } 
