@@ -1352,8 +1352,8 @@
 		@media screen and (max-width: 736px) {
 
 			#header .inner {
-				width: 25em;
-				height: 25em;
+				width: 29em;
+				height: 29em;
 				font-size: .75em;
 				padding: 3em;
 			}
@@ -1363,8 +1363,8 @@
 		@media screen and (max-width: 480px) {
 
 			#header .inner {
-				width: 26em;
-				height: 26em;
+				width: 29em;
+				height: 29em;
 				padding: 2em;
 				font-size: .65em;
 			}
