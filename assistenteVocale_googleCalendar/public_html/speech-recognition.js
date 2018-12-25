@@ -52,6 +52,7 @@ function interpret(line) {
     else if (line.indexOf("aggiungi") === 0 || line.indexOf("Aggiungi") === 0 || line.indexOf("inserisci") === 0 || line.indexOf("Inserisci") === 0)
     {
         var dati = parseEvent(line);
+
         if (dati !== undefined && calendari[document.getElementById("selectCalendar").value].accessRole!=="reader")
         {
             addEventToCalendar(dati.data, dati.ora, dati.summary);
@@ -89,10 +90,9 @@ function interpret(line) {
 function parseEvent(s)
 {
     var sElement = s.split(" ");
-    var indiceOre = undefined;
-    indiceOre= sElement.indexOf("ore");
+    var indiceOre = sElement.indexOf("ore");
     
-    if(indiceOre !== undefined)
+    if(indiceOre !== -1)
     {
         var summary = undefined;
         if (indiceOre > 1 && indiceOre !== sElement.length - 1)
@@ -125,10 +125,9 @@ function parseEvent(s)
     }
     else
     {
-        var indiceIL= undefined;
-        indiceIL= sElement.indexOf("il");
-        
-        if(indiceIL!==undefined)
+        var indiceIL= sElement.indexOf("il");
+
+        if(indiceIL!== -1)
         {
             var summary = sElement[1];
             for (var i = 2; i < indiceIL; i++)

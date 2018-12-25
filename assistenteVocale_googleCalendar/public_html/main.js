@@ -1,5 +1,6 @@
 window.onload= function(){
     this.avatar= new Avatar();   
+
     document.getElementById("infoButton").onclick= function()
     {
         var footer=document.getElementById("footer");
