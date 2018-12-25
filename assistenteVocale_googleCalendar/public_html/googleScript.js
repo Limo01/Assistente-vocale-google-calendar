@@ -165,7 +165,7 @@ function addEventToCalendar(data, ora, evento)
                 "date": data
             },
             "end": {
-                "dateTime": data
+                "date": data
             },
             "summary": evento
         };
