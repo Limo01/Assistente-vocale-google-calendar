@@ -1,13 +1,10 @@
-function SVG(dimensioni, colore, id)
+function SVG(dimensioni, colore)
 {
     this.svgNS = "http://www.w3.org/2000/svg";
-    this.finestraSVG = document.createElementNS(this.svgNS, "svg");
-    this.finestraSVG.setAttribute("id", id);
+    this.finestraSVG = document.getElementById("avatar");
     this.finestraSVG.setAttribute("width", dimensioni.width);
     this.finestraSVG.setAttribute("height", dimensioni.height);
     this.finestraSVG.style.background= colore;
-    //document.body.appendChild(this.finestraSVG);
-    document.getElementById("pagina").appendChild(this.finestraSVG);
 };
 
 SVG.prototype.creaShape= function(tipo, attributi)

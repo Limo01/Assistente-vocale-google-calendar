@@ -1,39 +1,39 @@
 function Avatar()
 {
-    this.svg= new SVG({"width":400, "height":400}, "white", "avatar");
+    this.svg= new SVG({"width":300, "height":400}, "white");
     
     var corpo= this.svg.creaGruppo(
         "corpo",
-        new Array(this.svg.poligono("collo", "170,280 230,280 240,335 160,335", "#ffcccd"),
-                  this.svg.poligonoContorno("colletto", "160,335 240,335 235,310 200,325 165,310", "white", 1),
-                  this.svg.poligono("busto", "120,335 280,335 290,400 110,400", "black"),
-                  this.svg.poligono("cravattaAfarfalla", "180,320 180,340 200,330 220,320 220,340 200,330 180,320", "gray"),
-                  this.svg.cerchioContorno("bottoneCravatta", 5, {x:200, y:330}, "white", 1, "gray"),
-                  this.svg.cerchioContorno("bottoneCamicia1", 5, {x:200, y:350}, "gray", 1, "white"),
-                  this.svg.cerchioContorno("bottoneCamicia2", 5, {x:200, y:375}, "gray", 1, "white"),
-                  this.svg.cerchioContorno("bottoneCamicia3", 5, {x:200, y:400},  "gray", 1, "white")        
+        new Array(this.svg.poligono("collo", "120,280 180,280 190,335 110,335", "#ffcccd"),
+                  this.svg.poligonoContorno("colletto", "110,335 190,335 185,310 150,325 115,310", "white", 1),
+                  this.svg.poligono("busto", "70,335 230,335 240,400 60,400", "black"),
+                  this.svg.poligono("cravattaAfarfalla", "130,320 130,340 150,330 170,320 170,340 150,330 130,320", "gray"),
+                  this.svg.cerchioContorno("bottoneCravatta", 5, {x:150, y:330}, "white", 1, "gray"),
+                  this.svg.cerchioContorno("bottoneCamicia1", 5, {x:150, y:350}, "gray", 1, "white"),
+                  this.svg.cerchioContorno("bottoneCamicia2", 5, {x:150, y:375}, "gray", 1, "white"),
+                  this.svg.cerchioContorno("bottoneCamicia3", 5, {x:150, y:400},  "gray", 1, "white")        
         )
     );
     
-    var faccia= this.svg.cerchio("faccia", 100, {x:200, y:200}, "#ffcccc");
+    var faccia= this.svg.cerchio("faccia", 100, {x:150, y:200}, "#ffcccc");
     faccia.setAttribute("stroke", "pink");
     faccia.setAttribute("stroke-widht", 2);
     
-    this.svg.poligono("capelli", "140,120 150,130 160,120 170,130 180,120 190,130 200,120 210,130 220,120 230,130 240,120, 250,130 260,120 250,100 200,95 150,100", "black");
+    this.svg.poligono("capelli", "90,120 100,130 110,120 120,130 130,120 140,130 150,120 160,130 170,120 180,130 190,120, 200,130 210,120 200,100 150,95 100,100", "black");
     
     var occhioSx= this.svg.creaGruppo(
         "occhioSx", 
-        new Array(this.svg.cerchio("occhioSx", 20, {x:160, y:175}, "white"), 
-                  this.svg.cerchio("occhioSxIride", 10, {x:160, y:175}, "#9fdf9f"),
-                  this.svg.cerchio("occhioSxPupilla", 5, {x:160, y:175}, "black")
+        new Array(this.svg.cerchio("occhioSx", 20, {x:110, y:175}, "white"), 
+                  this.svg.cerchio("occhioSxIride", 10, {x:110, y:175}, "#9fdf9f"),
+                  this.svg.cerchio("occhioSxPupilla", 5, {x:110, y:175}, "black")
         )
     );
     
     var occhioDx= this.svg.creaGruppo(
         "occhioSx", 
-        new Array(this.svg.cerchio("occhioDx", 20, {x:240, y:175}, "white"),
-                  this.svg.cerchio("occhioDxIride", 10, {x:240, y:175}, "#9fdf9f"),
-                  this.svg.cerchio("occhioDxPupilla", 5, {x:240, y:175}, "black")
+        new Array(this.svg.cerchio("occhioDx", 20, {x:190, y:175}, "white"),
+                  this.svg.cerchio("occhioDxIride", 10, {x:190, y:175}, "#9fdf9f"),
+                  this.svg.cerchio("occhioDxPupilla", 5, {x:190, y:175}, "black")
         )
     );
     
@@ -46,38 +46,38 @@ function Avatar()
     this.occhiChiusi= this.svg.creaGruppo(
             "occhiChiusi",
             new Array(
-                this.svg.linea("occhioSxChiuso", {x:140, y:175}, {x:180, y:175}, "black", 2),
-                this.svg.linea("occhioSxChiuso", {x:220, y:175}, {x:260, y:175}, "black", 2)
+                this.svg.linea("occhioSxChiuso", {x:90, y:175}, {x:130, y:175}, "black", 2),
+                this.svg.linea("occhioSxChiuso", {x:170, y:175}, {x:210, y:175}, "black", 2)
             )
     );
     this.occhiChiusi.setAttribute("display", "none");
     
     var occhiali= this.svg.creaGruppo(
         "occhiali",
-        new Array(this.svg.cerchioContorno("lenteSx", 30, {x:160, y:175}, "black", 2),
-                  this.svg.cerchioContorno("lenteDx", 30, {x:240, y:175}, "black", 2),
-                  this.svg.linea("collegamentoLenti", {x:190, y:175}, {x:210, y:175},"black", 2),
-                  this.svg.linea("stanghettaSx", {x:130, y:175}, {x:106, y:165},"black", 2),
-                  this.svg.linea("stanghettaDx", {x:270, y:175}, {x:294, y:165},"black", 2)           
+        new Array(this.svg.cerchioContorno("lenteSx", 30, {x:110, y:175}, "black", 2),
+                  this.svg.cerchioContorno("lenteDx", 30, {x:190, y:175}, "black", 2),
+                  this.svg.linea("collegamentoLenti", {x:140, y:175}, {x:160, y:175},"black", 2),
+                  this.svg.linea("stanghettaSx", {x:80, y:175}, {x:56, y:165},"black", 2),
+                  this.svg.linea("stanghettaDx", {x:220, y:175}, {x:244, y:165},"black", 2)           
         )
     );
     
     var orecchie= this.svg.creaGruppo(
         "orecchie",
-        new Array(this.svg.cerchio("orecchioSx", 10, {x:106, y:170}, "#ffcccc"),
-                  this.svg.cerchio("orecchioSx", 10, {x:294, y:170}, "#ffcccc")  
+        new Array(this.svg.cerchio("orecchioSx", 10, {x:56, y:170}, "#ffcccc"),
+                  this.svg.cerchio("orecchioSx", 10, {x:244, y:170}, "#ffcccc")  
         )
     );
     
     this.boccaChiusa= this.svg.creaGruppo(
             "boccaChiusa",
             new Array(
-                this.svg.linea(undefined, {x:170, y:230}, {x:230, y:230}, "black", 4)  
+                this.svg.linea(undefined, {x:120, y:230}, {x:180, y:230}, "black", 4)  
             )
     );
     this.boccaChiusa.setAttribute("display", "block");
     
-    var bocca= this.svg.poligono(undefined, "170,230 230,230 220,250 180,250 170,230", "red");
+    var bocca= this.svg.poligono(undefined, "120,230 180,230 170,250 130,250 120,230", "red");
     bocca.setAttribute("stroke", "black");
     bocca.setAttribute("stroke-widht", "2");   
     
@@ -85,7 +85,7 @@ function Avatar()
             "bocca chiusa",
             new Array(
                 bocca,
-                this.svg.poligono(undefined, "171,231 229,231 226,235 173,235", "white")
+                this.svg.poligono(undefined, "121,231 179,231 176,235 123,235", "white")
             )
     );
     this.boccaAperta.setAttribute("display", "none");
