@@ -82,7 +82,7 @@ function interpret(line) {
     }
     else
     {
-        if(document.getElementById("listaComandi").style.display==="none")
+        if(document.getElementById("lista_comandi").style.display==="none")
         {
             window.avatar.say("Il comando non esiste!");
         }
