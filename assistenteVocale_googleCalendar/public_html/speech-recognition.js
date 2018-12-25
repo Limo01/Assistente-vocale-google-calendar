@@ -56,9 +56,13 @@ function interpret(line) {
         {
             addEventToCalendar(dati.data, dati.ora, dati.summary);
         }
+        else if(calendari[document.getElementById("selectCalendar").value].accessRole==="reader")
+        {
+            window.avatar.say("Non hai i permessi di scrittura sul calendario selezionato!");
+        }
         else
         {
-            window.avatar.say("Non hai i permessi di scrittura sul calendario selezionato");
+            window.avatar.say("Ci sono errori di sintassi nel comando!");
         }
     }
     else if (line==="opzioni" || line==="Opzioni" || line==="comandi" || line==="Comandi")
@@ -74,8 +78,19 @@ function interpret(line) {
         {
             document.getElementById("infoButton").onclick();
             window.avatar.say("Eccoli!");
+        }  
+    }
+    else
+    {
+        if(document.getElementById("listaComandi").style.display==="none")
+        {
+            window.avatar.say("Il comando non esiste!");
         }
-        
+        else
+        {
+            window.avatar.say("Il comando non esiste. Dai un'occhiata alla lista dei comandi!");
+            interpret("comandi");
+        }  
     }
 }
 
@@ -110,7 +125,6 @@ function parseEvent(s)
         var mese = mesi.indexOf(sElement[indiceOre + 4]);
         var giorno = sElement[indiceOre + 3];
         var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-        console.log(mese+" "+dataAttuale.getMonth());
         data = anno + "-" + (mese+1) + "-" + giorno;
     }
 
