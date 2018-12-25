@@ -107,11 +107,11 @@ function parseEvent(s)
     {
         var dataAttuale = new Date();
         var mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
-        var mese = mesi.indexOf(sElement[indiceOre + 4])+1;
+        var mese = mesi.indexOf(sElement[indiceOre + 4]);
         var giorno = sElement[indiceOre + 3];
         var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
         console.log(mese+" "+dataAttuale.getMonth());
-        data = anno + "-" + mese + "-" + giorno;
+        data = anno + "-" + (mese+1) + "-" + giorno;
     }
 
     if (summary !== undefined && ora !== undefined && data !== undefined)
