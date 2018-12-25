@@ -1,10 +1,9 @@
 window.onload= function(){
-    this.avatar= new Avatar();
+    this.avatar= new Avatar();   
     
     document.getElementById("infoButton").onclick= function()
     {
         var footer=document.getElementById("footer");
-        console.log(footer.attributes.class.nodeValue);
         
         if(footer.attributes.class.nodeValue==="show")
         {

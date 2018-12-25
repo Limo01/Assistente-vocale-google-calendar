@@ -82,16 +82,7 @@ function interpret(line) {
     }
     else
     {
-        console.log(document.getElementById("lista_comandi").style.display);
-        if(document.getElementById("lista_comandi").style.display==="none")
-        {
-            window.avatar.say("Il comando non esiste!");
-        }
-        else
-        {
-            window.avatar.say("Il comando non esiste. Dai un'occhiata alla lista dei comandi!");
-            interpret("comandi");
-        }  
+        window.avatar.say("Il comando non esiste!"); 
     }
 }
 
@@ -104,36 +95,65 @@ function parseEvent(s)
         if (sElement[i] === "ore")
             indiceOre = i;
     }
-
-    var summary = undefined;
-    if (indiceOre !== undefined && indiceOre > 1 && indiceOre !== sElement.length - 1)
+    
+    if(indiceOre !== undefined)
     {
-        summary = sElement[1];
-        for (var i = 2; i < indiceOre; i++)
+        var summary = undefined;
+        if (indiceOre > 1 && indiceOre !== sElement.length - 1)
         {
-            summary += " " + sElement[i];
+            summary = sElement[1];
+            for (var i = 2; i < indiceOre; i++)
+            {
+                summary += " " + sElement[i];
+            }
+        }
+
+        var ora = sElement[indiceOre + 1];
+
+        var data = undefined;
+
+        if (indiceOre + 4 === sElement.length - 1)
+        {
+            var dataAttuale = new Date();
+            var mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
+            var mese = mesi.indexOf(sElement[indiceOre + 4]);
+            var giorno = sElement[indiceOre + 3];
+            var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+            data = anno + "-" + (mese+1) + "-" + giorno;
+        }
+
+        if (summary !== undefined && ora !== undefined && data !== undefined)
+        {
+            return {"summary": summary, "data": data, "ora": ora};
+        } 
+    }
+    else
+    {
+        var indiceIL= undefined;
+        for (var i = 0; i < sElement.length; i++)
+        {
+            if (sElement[i] === "il")
+                indiceIL = i;
+        }
+        if(indiceIL!==undefined)
+        {
+            var summary = sElement[1];
+            for (var i = 2; i < indiceIL; i++)
+            {
+                summary += " " + sElement[i];
+            }
+            var dataAttuale = new Date();
+            var giorno= sElement[indiceIL+1];
+            var mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
+            var mese = mesi.indexOf(sElement[indiceIL + 2]);
+            var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+            data = anno + "-" + (mese+1) + "-" + giorno;
+            
+            if(summary !== undefined && data !== undefined)
+            {
+                return {"summary": summary, "data": data};
+            }
         }
     }
-
-    var ora = sElement[indiceOre + 1];
-
-    var data = undefined;
-
-    if (indiceOre + 4 === sElement.length - 1)
-    {
-        var dataAttuale = new Date();
-        var mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
-        var mese = mesi.indexOf(sElement[indiceOre + 4]);
-        var giorno = sElement[indiceOre + 3];
-        var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-        data = anno + "-" + (mese+1) + "-" + giorno;
-    }
-
-    if (summary !== undefined && ora !== undefined && data !== undefined)
-    {
-        return {"summary": summary, "data": data, "ora": ora};
-    } else
-    {
-        return undefined;
-    }
+    return undefined;
 };

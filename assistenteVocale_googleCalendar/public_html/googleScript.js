@@ -144,17 +144,33 @@ function listUpcomingEvents() {
 
 function addEventToCalendar(data, ora, evento)
 {
-    var event = {
-        "start": {
-            "dateTime": data+"T"+ora+":00",
-            "timeZone": "Europe/Rome"
-        },
-        "end": {
-            "dateTime": data+"T"+ora+":00",
-            "timeZone": "Europe/Rome"
-        },
-        "summary": evento
-    };
+    if(ora!==undefined)
+    {
+        var event = {
+            "start": {
+                "dateTime": data+"T"+ora+":00",
+                "timeZone": "Europe/Rome"
+            },
+            "end": {
+                "dateTime": data+"T"+ora+":00",
+                "timeZone": "Europe/Rome"
+            },
+            "summary": evento
+        };
+    }
+    else
+    {
+        var event = {
+            "start": {
+                "date": data
+            },
+            "end": {
+                "dateTime": data
+            },
+            "summary": evento
+        };
+    }
+    
 
     var request = gapi.client.calendar.events.insert({
         'calendarId': document.getElementById("selectCalendar").value,
