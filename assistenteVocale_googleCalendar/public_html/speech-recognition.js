@@ -90,11 +90,7 @@ function parseEvent(s)
 {
     var sElement = s.split(" ");
     var indiceOre = undefined;
-    for (var i = 0; i < sElement.length; i++)
-    {
-        if (sElement[i] === "ore")
-            indiceOre = i;
-    }
+    indiceOre= sElement.indexOf("ore");
     
     if(indiceOre !== undefined)
     {
@@ -130,11 +126,8 @@ function parseEvent(s)
     else
     {
         var indiceIL= undefined;
-        for (var i = 0; i < sElement.length; i++)
-        {
-            if (sElement[i] === "il")
-                indiceIL = i;
-        }
+        indiceIL= sElement.indexOf("il");
+        
         if(indiceIL!==undefined)
         {
             var summary = sElement[1];
