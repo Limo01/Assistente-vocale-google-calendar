@@ -82,6 +82,7 @@ function interpret(line) {
     }
     else
     {
+        console.log(document.getElementById("lista_comandi").style.display);
         if(document.getElementById("lista_comandi").style.display==="none")
         {
             window.avatar.say("Il comando non esiste!");
