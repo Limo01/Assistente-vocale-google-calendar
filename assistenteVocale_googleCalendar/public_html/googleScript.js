@@ -157,7 +157,6 @@ function addEventToCalendar(data, ora, evento)
     };
 
     var request = gapi.client.calendar.events.insert({
-        //'calendarId': "primary",
         'calendarId': document.getElementById("selectCalendar").value,
         'resource': event
     });
