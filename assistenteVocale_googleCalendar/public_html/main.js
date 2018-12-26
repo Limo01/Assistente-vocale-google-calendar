@@ -40,9 +40,7 @@ catch(e) {
 ------------------------------*/
 
 $('#start-record-btn').on('click', function(e) {
-    if (noteContent.length) {
-        noteContent += ' ';
-    }
+    reset();
     recognition.start();
     instructions.text('Voice recognition turned on.');
 });
@@ -54,13 +52,7 @@ $('#pause-record-btn').on('click', function(e) {
 });
 
 $('#reset-btn').on('click', function(e) {
-    console.log(noteContent);
-    recognition.stop();
-    instructions.text('');
-    noteTextarea.val('');
-    noteContent="";
-    
-    document.getElementById("responseSpan").innerHTML= "";
+    reset();
 });
 
 $('#speak-btn').on('click', function(e) {
@@ -72,3 +64,14 @@ $('#speak-btn').on('click', function(e) {
 noteTextarea.on('input', function() {
     noteContent = $(this).val();
 });
+
+function reset()
+{
+    recognition.stop();
+    instructions.text('');
+    noteTextarea.val('');
+    noteContent="";
+    
+    document.getElementById("responseSpan").innerHTML= "";
+}
+
