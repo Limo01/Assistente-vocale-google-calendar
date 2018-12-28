@@ -48,7 +48,6 @@ $('#start-record-btn').on('click', function(e) {
 
 $('#pause-record-btn').on('click', function(e) {
     recognition.stop();
-    instructions.text('Voice recognition turned off.');
     interpret(noteContent);
 });
 

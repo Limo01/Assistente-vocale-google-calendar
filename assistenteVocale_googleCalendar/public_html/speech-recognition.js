@@ -45,6 +45,7 @@ recognition.onerror = function (event) {
  @param String line
  */
 function interpret(line) {
+    instructions.text('Voice recognition turned off.');
     if (line.toLowerCase()=== "prossimi eventi")
     {
         listUpcomingEvents();
