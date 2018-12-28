@@ -142,7 +142,7 @@ function listUpcomingEvents() {
                 }   
             }
             appendResponse('Upcoming events:'+'<br>'+stringEvent);
-            window.avatar.say(stringOutAvatar, 100);
+            window.avatar.say(stringOutAvatar, 105);
         } 
         else 
         {
