@@ -132,7 +132,7 @@ Avatar.prototype.say= function(messaggio)
     {
         window.avatar.movimentoBocca= setInterval(this.muoviBocca, 200);
         readOutLoud(messaggio);
-        setTimeout(window.avatar.smettiDiParlare, (messaggio.length*105));
+        setTimeout(window.avatar.smettiDiParlare, (messaggio.length*110));
     }
 };
 
