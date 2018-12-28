@@ -121,8 +121,10 @@ function listUpcomingEvents() {
         var stringEvent="";
         var stringOutAvatar="";
         
-        if (events.length > 0) {
-            for (i = 0; i < events.length; i++) {
+        if (events.length > 0) 
+        {
+            for (i = 0; i < events.length; i++) 
+            {
                 var event = events[i];
                 var when = event.start.dateTime;
                 if (!when) {
@@ -137,11 +139,14 @@ function listUpcomingEvents() {
                     
                     stringEvent+= event.summary + ' (' + data + ' ore ' + ora + ')' + '<br>';
                     stringOutAvatar+= event.summary+" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(4, 6))] + " " + data.substring(0, 4) + " ore " + ora;
-                }
-                appendResponse('Upcoming events:'+'<br>'+stringEvent);
-                window.avatar.say(stringOutAvatar);
+                }   
             }
-        } else {
+            appendResponse('Upcoming events:'+'<br>'+stringEvent);
+            window.avatar.say(stringOutAvatar);
+            console.log(stringOutAvatar);
+        } 
+        else 
+        {
             appendResponse('No upcoming events found.');
             window.avatar.say("Non hai eventi nel tuo calendario.");
         }
