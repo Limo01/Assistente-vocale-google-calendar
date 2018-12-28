@@ -138,7 +138,7 @@ function listUpcomingEvents() {
                     var ora= when.substring(11, 16);
                     
                     stringEvent+= event.summary + ' (' + data + ' ore ' + ora + ')' + '<br>';
-                    stringOutAvatar+= event.summary+" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(4, 6))] + " " + data.substring(0, 4) + " ore " + ora + ". ";
+                    stringOutAvatar+= event.summary+" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(4, 6))] + " " + data.substring(0, 4) + "alle ore " + ora + ". ";
                 }   
             }
             appendResponse('Upcoming events:'+'<br>'+stringEvent);
