@@ -1,8 +1,6 @@
 window.onload= function(){
     this.avatar= new Avatar();  
-    var data= "2018-01-01"; 
-    console.log(" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(4, 6))] + " " + data.substring(0, 4));
-    
+
     document.getElementById("infoButton").onclick= function()
     {
         var footer=document.getElementById("footer");

@@ -119,6 +119,7 @@ function listUpcomingEvents() {
         var events = response.result.items;
         
         var stringEvent="";
+        var stringOutAvatar="";
         
         if (events.length > 0) {
             for (i = 0; i < events.length; i++) {
@@ -127,7 +128,7 @@ function listUpcomingEvents() {
                 if (!when) {
                     when = event.start.date;
                     stringEvent+= event.summary + ' (' + when + ')' + '<br>';
-                    window.avatar.say(event.summary+" il "+when.substring(8)+" "+ mesi[parseInt(when.substring(4, 6))] + " " + when.substring(0, 4));
+                    stringOutAvatar+= event.summary+" il "+when.substring(8)+" "+ mesi[parseInt(when.substring(4, 6))] + " " + when.substring(0, 4);
                 }
                 else
                 {
@@ -135,9 +136,10 @@ function listUpcomingEvents() {
                     var ora= when.substring(11, 16);
                     
                     stringEvent+= event.summary + ' (' + data + ' ore ' + ora + ')' + '<br>';
-                    window.avatar.say(event.summary+" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(4, 6))] + " " + data.substring(0, 4) + " ore " + ora);
+                    stringOutAvatar+= event.summary+" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(4, 6))] + " " + data.substring(0, 4) + " ore " + ora;
                 }
                 appendResponse('Upcoming events:'+'<br>'+stringEvent);
+                window.avatar.say(stringOutAvatar);
             }
         } else {
             appendResponse('No upcoming events found.');
