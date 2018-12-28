@@ -126,13 +126,15 @@ Avatar.prototype.muoviBocca= function()
     }
 };
 
-Avatar.prototype.say= function(messaggio)
+Avatar.prototype.say= function(messaggio, coefficiente)
 {
     if(window.avatar.movimentoBocca===undefined && messaggio!=="")
     {
         window.avatar.movimentoBocca= setInterval(this.muoviBocca, 200);
         readOutLoud(messaggio);
-        setTimeout(window.avatar.smettiDiParlare, (messaggio.length*90));
+        if(coefficiente===undefined) setTimeout(window.avatar.smettiDiParlare, (messaggio.length*90));
+        else setTimeout(window.avatar.smettiDiParlare, (messaggio.length*coefficiente));
+        
     }
 };
 
