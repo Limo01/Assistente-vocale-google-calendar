@@ -1,9 +1,6 @@
 window.onload= function(){
     this.avatar= new Avatar(); 
     
-    var giorni= ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"];
-    console.log("Oggi è "+giorni[new Date().getDay()]);
-    
     document.getElementById("infoButton").onclick= function()
     {
         var footer=document.getElementById("footer");
