@@ -1,6 +1,8 @@
 window.onload= function(){
-    this.avatar= new Avatar();   
-
+    this.avatar= new Avatar();  
+    var data= "2018-01-01"; 
+    console.log(" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(4, 6))] + " " + data.substring(0, 4));
+    
     document.getElementById("infoButton").onclick= function()
     {
         var footer=document.getElementById("footer");
@@ -24,6 +26,7 @@ var NOT_FOUND = -1; // index not found
 var noteTextarea = $('#note-textarea');
 var instructions = $('#recording-instructions');
 var noteContent = '';
+var mesi = ["gennaio", "febbraio", "marzo", "aprile", "maggio", "giugno", "luglio", "agosto", "settembre", "ottobre", "novembre", "dicembre"];
 
 try {
     var SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
