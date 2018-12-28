@@ -45,11 +45,11 @@ recognition.onerror = function (event) {
  @param String line
  */
 function interpret(line) {
-    if (line=== "prossimi eventi" || line=== "Prossimi eventi")
+    if (line.toLowerCase()=== "prossimi eventi")
     {
         listUpcomingEvents();
     } 
-    else if (line.indexOf("aggiungi") === 0 || line.indexOf("Aggiungi") === 0 || line.indexOf("inserisci") === 0 || line.indexOf("Inserisci") === 0)
+    else if (line.toLowerCase().indexOf("aggiungi") === 0 || line.toLowerCase().indexOf("inserisci") === 0)
     {
         var dati = parseEvent(line);
 
@@ -66,7 +66,7 @@ function interpret(line) {
             window.avatar.say("Ci sono errori di sintassi nel comando!");
         }
     }
-    else if (line==="opzioni" || line==="Opzioni" || line==="comandi" || line==="Comandi")
+    else if (line.toLowerCase()==="opzioni" || line.toLowerCase()==="comandi")
     {
         var footer= document.getElementById("footer");
         if(footer.attributes.class.nodeValue==="show")
@@ -80,6 +80,12 @@ function interpret(line) {
             document.getElementById("infoButton").onclick();
             window.avatar.say("Eccoli!");
         }  
+    }
+    else if(line.toLowerCase()==="Che giorno è oggi")
+    {
+        noteTextarea.val('"Che giorno è oggi?');
+        var giorni= ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"];
+        window.avatar.say("Oggi è "+giorni[new Date().getDay()-1]);
     }
     else
     {

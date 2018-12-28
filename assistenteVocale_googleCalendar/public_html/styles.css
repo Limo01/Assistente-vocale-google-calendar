@@ -13,8 +13,8 @@ button:focus {
 
 button{
     margin: 4px 2px;
-	background-color: #4285f4;
-	font-family: 'Futura', sans-serif;
+    background-color: #4285f4;
+    font-family: 'Futura', sans-serif;
 }
 
 .container {
@@ -82,7 +82,7 @@ button{
 }
 
 .app{
-	padding-top: 50px;
+    padding-top: 50px;
 }
 
 #response
@@ -112,12 +112,20 @@ button{
 }
 
 #title{
-	font-family: 'Futura', sans-serif;
-	font-size: 40px;
+    font-family: 'Futura', sans-serif;
+    font-size: 40px;
 }
 
 #lista_comandi{
     margin-left: 10%;
+}
+
+#listaComandiScorrevole
+{
+    width: auto;
+    height: 200px;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 .whiteColor
@@ -146,29 +154,29 @@ button{
         width: 80%;
         margin: 5% auto;
     }
-    
+
     .container {
         padding: 50px 0px 0px 0px;
     }
-    
+
     .app{
         margin: 0px auto;
         float: none;
         width: 100%;
     }
-    
+
     #avatar{
         float: none;
     }
-    
+
     #recording-instructions{
         margin: 15px auto 10px;
     }
-    
+
     #scelta_calendario{
         margin-right: 0%;
     }
-    
+
     #lista_comandi{
         display: none;
     }
@@ -178,12 +186,12 @@ button{
         margin-bottom: 10px;
         padding: 0px 5px;
     }
-    
+
     #header.hide .button.hidden
     {
         padding-top: 1em;
     }
-    
+
     #header.hide .button.hidden:before, #header.preview .button.hidden:before
     {
         content: "\f08b";
@@ -205,7 +213,7 @@ button{
 {
     animation:octocat-wave 560ms ease-in-out
 }
-    
+
 @keyframes octocat-wave
 {
     0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}
