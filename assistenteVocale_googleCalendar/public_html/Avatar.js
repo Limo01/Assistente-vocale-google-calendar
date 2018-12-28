@@ -140,8 +140,6 @@ Avatar.prototype.smettiDiParlare= function()
 {   
     if(window.avatar.movimentoBocca!==undefined)
     {
-        console.log("smetto di parlare");
-        
         clearInterval(window.avatar.movimentoBocca);
         window.avatar.movimentoBocca= undefined;
         
