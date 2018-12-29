@@ -87,7 +87,7 @@ function interpret(line) {
         noteTextarea.val('Che giorno è oggi?');
         var data= new Date();
         var giorni= ["lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato", "domenica"];
-        window.avatar.say("Oggi è "+giorni[data.getDay()-1]+" "+data.getDate()+" "+mesi[data.getMonth()]+" "+data.getFullYear());
+        window.avatar.say("Oggi è "+giorni[data.getDay()-1]+" "+data.getDate()+" "+mesi[data.getMonth()]+" "+data.getFullYear(), 90);
     }
     else
     {
