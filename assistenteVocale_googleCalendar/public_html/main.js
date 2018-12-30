@@ -1,6 +1,6 @@
 window.onload= function(){
     this.avatar= new Avatar(); 
-    console.log("benvenuto");
+
     document.getElementById("infoButton").onclick= function()
     {
         var footer=document.getElementById("footer");
