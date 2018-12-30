@@ -127,10 +127,22 @@ button{
     overflow-x: hidden;
     overflow-y: auto;
 }
+/* width */
+#listaComandiScorrevole::-webkit-scrollbar {
+  width: 5px;
+}
+ 
+/* Handle */
+#listaComandiScorrevole::-webkit-scrollbar-thumb {
+  background: #336ac6; 
+  border-radius: 10px;
+}
+
 
 .whiteColor
 {
     color: white;
+    margin-right: 5px;
 }
 
 .bold
