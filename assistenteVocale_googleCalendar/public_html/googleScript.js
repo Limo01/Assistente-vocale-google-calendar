@@ -131,7 +131,7 @@ function listUpcomingEvents() {
                 if (!when) {
                     when = event.start.date;
                     stringEvent+= event.summary + ' (' + when + ')' + '<br>';
-                    stringOutAvatar+= event.summary+" il "+when.substring(8)+" "+ mesi[parseInt(when.substring(5, 7))] + " " + when.substring(0, 4) + ". ";
+                    stringOutAvatar+= event.summary+" il "+when.substring(8)+" "+ mesi[parseInt(when.substring(5, 7))-1] + " " + when.substring(0, 4) + ". ";
                 }
                 else
                 {
@@ -139,7 +139,7 @@ function listUpcomingEvents() {
                     var ora= when.substring(11, 16);
                     
                     stringEvent+= event.summary + ' (' + data + ' ore ' + ora + ')' + '<br>';
-                    stringOutAvatar+= event.summary+" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(5, 7))] + " " + data.substring(0, 4) + " alle ore " + ora + ". ";
+                    stringOutAvatar+= event.summary+" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(5, 7))-1] + " " + data.substring(0, 4) + " alle ore " + ora + ". ";
                 }   
             }
             appendResponse('Upcoming events:'+'<br>'+stringEvent);
