@@ -127,6 +127,7 @@ function listUpcomingEvents() {
             {
                 var event = events[i];
                 var when = event.start.dateTime;
+                console.log(when);
                 if (!when) {
                     when = event.start.date;
                     stringEvent+= event.summary + ' (' + when + ')' + '<br>';
@@ -146,7 +147,6 @@ function listUpcomingEvents() {
         } 
         else 
         {
-            appendResponse('No upcoming events found.');
             window.avatar.say("Non hai eventi nel tuo calendario.");
         }
     });

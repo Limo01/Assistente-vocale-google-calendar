@@ -49,7 +49,8 @@ function interpret(line) {
     if (line.toLowerCase() === "prossimi eventi")
     {
         listUpcomingEvents();
-    } else if (line.toLowerCase().indexOf("aggiungi") === 0 || line.toLowerCase().indexOf("inserisci") === 0)
+    } 
+    else if (line.toLowerCase().indexOf("aggiungi") === 0 || line.toLowerCase().indexOf("inserisci") === 0)
     {
         var dati = parseEvent(line);
 
