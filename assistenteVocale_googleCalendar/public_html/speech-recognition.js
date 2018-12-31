@@ -46,52 +46,45 @@ recognition.onerror = function (event) {
  */
 function interpret(line) {
     instructions.text('Voice recognition turned off.');
-    if (line.toLowerCase()=== "prossimi eventi")
+    if (line.toLowerCase() === "prossimi eventi")
     {
         listUpcomingEvents();
-    } 
-    else if (line.toLowerCase().indexOf("aggiungi") === 0 || line.toLowerCase().indexOf("inserisci") === 0)
+    } else if (line.toLowerCase().indexOf("aggiungi") === 0 || line.toLowerCase().indexOf("inserisci") === 0)
     {
         var dati = parseEvent(line);
 
-        if (dati !== undefined && calendari[document.getElementById("selectCalendar").value].accessRole!=="reader")
+        if (dati !== undefined && calendari[document.getElementById("selectCalendar").value].accessRole !== "reader")
         {
             addEventToCalendar(dati.data, dati.ora, dati.summary);
-        }
-        else if(calendari[document.getElementById("selectCalendar").value].accessRole==="reader")
+        } else if (calendari[document.getElementById("selectCalendar").value].accessRole === "reader")
         {
             window.avatar.say("Non hai i permessi di scrittura sul calendario selezionato!");
-        }
-        else
+        } else
         {
             window.avatar.say("Ci sono errori di sintassi nel comando!");
         }
-    }
-    else if (line.toLowerCase()==="opzioni" || line.toLowerCase()==="comandi")
+    } else if (line.toLowerCase() === "opzioni" || line.toLowerCase() === "comandi")
     {
-        var footer= document.getElementById("footer");
-        if(footer.attributes.class.nodeValue==="show")
+        var footer = document.getElementById("footer");
+        if (footer.attributes.class.nodeValue === "show")
         {
             window.avatar.say("Te li sto già mostrando");
             document.getElementById("infoButton").onclick();
             setTimeout(document.getElementById("infoButton").onclick, 200);
-        }
-        else
+        } else
         {
             document.getElementById("infoButton").onclick();
             window.avatar.say("Eccoli!");
-        }  
-    }
-    else if(line.toLowerCase()==="che giorno è oggi")
+        }
+    } else if (line.toLowerCase() === "che giorno è oggi")
     {
         noteTextarea.val('Che giorno è oggi?');
-        var data= new Date();
-        var giorni= ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
-        window.avatar.say("Oggi è "+giorni[data.getDay()]+" "+data.getDate()+" "+mesi[data.getMonth()]+" "+data.getFullYear(), 90);
-    }
-    else
+        var data = new Date();
+        var giorni = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
+        window.avatar.say("Oggi è " + giorni[data.getDay()] + " " + data.getDate() + " " + mesi[data.getMonth()] + " " + data.getFullYear(), 90);
+    } else
     {
-        window.avatar.say("Il comando non esiste!"); 
+        window.avatar.say("Il comando non esiste!");
     }
 }
 
@@ -99,8 +92,8 @@ function parseEvent(s)
 {
     var sElement = s.split(" ");
     var indiceOre = sElement.indexOf("ore");
-    
-    if(indiceOre !== -1)
+
+    if (indiceOre !== -1)
     {
         var summary = undefined;
         if (indiceOre > 1 && indiceOre !== sElement.length - 1)
@@ -122,36 +115,32 @@ function parseEvent(s)
             var mese = mesi.indexOf(sElement[indiceOre + 4]);
             var giorno = sElement[indiceOre + 3];
             var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-            data = anno + "-" + (mese+1) + "-" + giorno;
+            data = anno + "-" + (mese + 1) + "-" + giorno;
         }
 
         if (summary !== undefined && ora !== undefined && data !== undefined)
         {
             return {"summary": summary, "data": data, "ora": ora};
-        } 
+        }
     }
-    else
+    else if (sElement[sElement.length - 3] === "il")
     {
-        var indiceIL= sElement.indexOf("il");
-
-        if(indiceIL!== -1)
+        var summary = sElement[1];
+        for (var i = 2; i < (sElement.length - 3); i++)
         {
-            var summary = sElement[1];
-            for (var i = 2; i < indiceIL; i++)
-            {
-                summary += " " + sElement[i];
-            }
-            var dataAttuale = new Date();
-            var giorno= sElement[indiceIL+1];
-            var mese = mesi.indexOf(sElement[indiceIL + 2]);
-            var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-            data = anno + "-" + (mese+1) + "-" + giorno;
-            
-            if(summary !== undefined && data !== undefined)
-            {
-                return {"summary": summary, "data": data};
-            }
+            summary += " " + sElement[i];
+        }
+        var dataAttuale = new Date();
+        var giorno = sElement[sElement.length - 2];
+        var mese = mesi.indexOf(sElement[sElement.length - 1]);
+        var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        data = anno + "-" + (mese + 1) + "-" + giorno;
+
+        if (summary !== undefined && data !== undefined)
+        {
+            return {"summary": summary, "data": data};
         }
     }
     return undefined;
-};
+}
+;
