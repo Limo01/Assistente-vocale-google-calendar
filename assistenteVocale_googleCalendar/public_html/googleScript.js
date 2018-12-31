@@ -44,7 +44,6 @@ function initClient() {
         authorizeButton.onclick = handleAuthClick;
         signoutButton.onclick = handleSignoutClick;
     }, function (error) {
-        //appendResponse(JSON.stringify(error, null, 2));
         appendResponse("Ci sono stati errori con le API Google!");
     });
 }
@@ -96,7 +95,6 @@ function handleSignoutClick(event) {
 function appendResponse(message) {
     document.getElementById("responseButton").style.display= "none";
     var pre = document.getElementById('responseSpan');
-    //var textContent = document.createTextNode(message + '\n');
     pre.innerHTML= message;
     pre.style.display="block";
 }
@@ -142,7 +140,7 @@ function listUpcomingEvents() {
                     stringOutAvatar+= event.summary+" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(5, 7))-1] + " " + data.substring(0, 4) + " alle ore " + ora + ". ";
                 }   
             }
-            appendResponse('Upcoming events:'+'<br>'+stringEvent);
+            appendResponse('Prossimi eventi:'+'<br>'+stringEvent);
             window.avatar.say(stringOutAvatar, 110);
         } 
         else 
