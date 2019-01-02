@@ -62,7 +62,7 @@ function interpret(line) {
             window.avatar.say("Non hai i permessi di scrittura sul calendario selezionato!");
         } else
         {
-            window.avatar.say("Ci sono errori di sintassi nel comando!");
+            window.avatar.say("Sintassi del comando errata!");
         }
     } else if (line.toLowerCase() === "opzioni" || line.toLowerCase() === "comandi")
     {

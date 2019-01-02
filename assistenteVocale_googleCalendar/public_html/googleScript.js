@@ -197,7 +197,7 @@ function addEventToCalendar(data, ora, evento)
         }
         else
         {
-            window.avatar.say("Sintassi del comando errata");
+            window.avatar.say("Sintassi del comando errata!");
         }
     });
 }
