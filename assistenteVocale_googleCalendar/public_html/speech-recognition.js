@@ -92,37 +92,25 @@ function interpret(line) {
 function parseEvent(s)
 {
     var sElement = s.split(" ");
-    var indiceOre = sElement.indexOf("ore");
 
-    if (indiceOre !== -1)
+    if(sElement[sElement.length-5]==="ore")
     {
-        var summary = undefined;
-        if (indiceOre > 1 && indiceOre !== sElement.length - 1)
+        var summary = sElement[1];
+        for (var i = 2; i < sElement.length-5; i++)
         {
-            summary = sElement[1];
-            for (var i = 2; i < indiceOre; i++)
-            {
-                summary += " " + sElement[i];
-            }
+            summary += " " + sElement[i];
         }
 
-        var ora = sElement[indiceOre + 1];
+        var ora = sElement[sElement.length-4];
 
-        var data = undefined;
+        var data;
+        var dataAttuale = new Date();
+        var mese = mesi.indexOf(sElement[sElement.length-1]);
+        var giorno = sElement[sElement.length-2];
+        var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        data = anno + "-" + (mese + 1) + "-" + giorno;
 
-        if (indiceOre + 4 === sElement.length - 1)
-        {
-            var dataAttuale = new Date();
-            var mese = mesi.indexOf(sElement[indiceOre + 4]);
-            var giorno = sElement[indiceOre + 3];
-            var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-            data = anno + "-" + (mese + 1) + "-" + giorno;
-        }
-
-        if (summary !== undefined && ora !== undefined && data !== undefined)
-        {
-            return {"summary": summary, "data": data, "ora": ora};
-        }
+        return {"summary": summary, "data": data, "ora": ora};
     }
     else if (sElement[sElement.length - 3] === "il")
     {
@@ -143,5 +131,4 @@ function parseEvent(s)
         }
     }
     return undefined;
-}
-;
+};
