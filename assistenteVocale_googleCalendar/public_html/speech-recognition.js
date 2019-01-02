@@ -96,7 +96,7 @@ function parseEvent(s)
     if(sElement[sElement.length-5]==="ore")
     {
         var summary = sElement[1];
-        for (var i = 2; i < sElement.length-5; i++)
+        for (var i = 2; i < (sElement.length-5); i++)
         {
             summary += " " + sElement[i];
         }
@@ -125,10 +125,7 @@ function parseEvent(s)
         var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
         data = anno + "-" + (mese + 1) + "-" + giorno;
 
-        if (summary !== undefined && data !== undefined)
-        {
-            return {"summary": summary, "data": data};
-        }
+        return {"summary": summary, "data": data};
     }
     return undefined;
 };
