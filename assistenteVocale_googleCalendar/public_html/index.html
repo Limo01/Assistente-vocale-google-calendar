@@ -10,7 +10,8 @@
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/shoelace-css/1.0.0-beta16/shoelace.css">
         <link rel="stylesheet" href=".\assets\css\main.css" /> 
-        <link rel="stylesheet" href="styles.css">
+        <link rel="stylesheet" href=".\assets\css\styles.css">
+        <link rel="stylesheet" href=".\assets\css\tooltip.css">
     </head>
     <body>
         <header id="header">
@@ -28,9 +29,9 @@
         <div id="pagina" class="container" style="display:none">
             <h1 id="title"><strong>Assistente Google calendar</strong></h1>
             <h3 class="no-browser-support">Sorry, this browser doesn't support the Web Speech API.</h3>
-            
+
             <svg id="avatar"></svg>
-            
+
             <div class="app">
                 <div class="input-single">
                     <textarea id="note-textarea" rows="3" placeholder="Dimmi cosa devo fare."></textarea>
@@ -52,20 +53,24 @@
                 <div id="lista_comandi">
                     <h3 class="whiteColor bold">Sintassi dei comandi disponibili</h3>
                     <div id="listaComandiScorrevole">
-			<p class="whiteColor">&ltAggiungi/Inserisci&gt &ltnome dell'evento&gt [ORE &ltora dell'evento&gt] IL &ltnumero del mese&gt &ltmese&gt<br>
+                        <p id="pTooltip" class="whiteColor">&ltAggiungi/Inserisci&gt &ltnome dell'evento&gt [ORE &ltora dell'evento&gt] IL &ltnumero del mese&gt &ltmese&gt<br>
                             Esempio: "Inserisci verifica di matematica ore 9:00 il 25 gennaio"<br>
                             Esempio: "Inserisci verifica di matematica il 25 gennaio"<br>
+                        </p>
+                        <div class="tooltip">
                             Esempio: "Aggiungi ferie dal 3 giugno al 20 giugno"
-			</p>
+                            <span class="tooltiptext">Nel calendario l'ultimo giorno di ferie risulterà il 19 giugno</span>
+                        </div>
+
                         <p class="whiteColor">Prossimi eventi<br>
                             Descrizione: Elenca i prossimi 5 eventi del calendario
-			</p>
+                        </p>
                         <p class="whiteColor">Comandi<br>
                             Descrizione: Mostra la lista dei comandi
-			</p>
+                        </p>
                         <p class="whiteColor">Che giorno è oggi?<br>
                             Descrizione: Comunica la data odierna
-			</p>
+                        </p>
                     </div>
                 </div>
             </div>

@@ -16,7 +16,7 @@ var signoutButton = document.getElementById('logOutButton');
 //signoutButton.onclick= handleSignoutClick;
 //var signoutButton = document.getElementById('signout_button');
 
-var calendari= new Array();//array che contiene le informazioni per ogni calendario
+var calendari = new Array();//array che contiene le informazioni per ogni calendario
 
 /**
  *  On load, called to load the auth2 library and API client library.
@@ -55,16 +55,15 @@ function initClient() {
 function updateSigninStatus(isSignedIn) {
     if (isSignedIn) {
         authorizeButton.style.display = 'none';
-        
+
         //animazione login
         var t = jQuery(document.getElementById("header"));
         t.toggleClass('hide');
         document.getElementById('pagina').style.display = 'block';
-        document.getElementById('footer').style.display= 'block';
-        
+        document.getElementById('footer').style.display = 'block';
+
         getCalendarsList();
-    } 
-    else
+    } else
     {
         authorizeButton.style.display = 'block';
         document.getElementById('pagina').style.display = 'none';
@@ -93,10 +92,10 @@ function handleSignoutClick(event) {
  * @param {string} message Text to be placed in pre element.
  */
 function appendResponse(message) {
-    document.getElementById("responseButton").style.display= "none";
+    document.getElementById("responseButton").style.display = "none";
     var pre = document.getElementById('responseSpan');
-    pre.innerHTML= message;
-    pre.style.display="block";
+    pre.innerHTML = message;
+    pre.style.display = "block";
 }
 
 /**
@@ -115,59 +114,62 @@ function listUpcomingEvents() {
         'orderBy': 'startTime'
     }).then(function (response) {
         var events = response.result.items;
-        
-        var stringEvent="";
-        var stringOutAvatar="";
-        
-        if (events.length > 0) 
+
+        var stringEvent = "";
+        var stringOutAvatar = "";
+
+        if (events.length > 0)
         {
-            for (i = 0; i < events.length; i++) 
+            for (i = 0; i < events.length; i++)
             {
                 var event = events[i];
                 var when = event.start.dateTime;
-                
+
                 if (!when) {
                     when = event.start.date;
-                    stringEvent+= event.summary + ' (' + when + ')' + '<br>';
-                    stringOutAvatar+= event.summary+" il "+when.substring(8)+" "+ mesi[parseInt(when.substring(5, 7))-1] + " " + when.substring(0, 4) + ". ";
-                }
-                else
+                    stringEvent += event.summary + ' (' + when + ')' + '<br>';
+                    stringOutAvatar += event.summary + " il " + when.substring(8) + " " + mesi[parseInt(when.substring(5, 7)) - 1] + " " + when.substring(0, 4) + ". ";
+                } else
                 {
-                    var data= when.substring(0, 10);
-                    var ora= when.substring(11, 16);
-                    
-                    stringEvent+= event.summary + ' (' + data + ' ore ' + ora + ')' + '<br>';
-                    stringOutAvatar+= event.summary+" il "+data.substring(8)+" "+ mesi[parseInt(data.substring(5, 7))-1] + " " + data.substring(0, 4) + " alle ore " + ora + ". ";
-                }   
+                    var data = when.substring(0, 10);
+                    var ora = when.substring(11, 16);
+
+                    stringEvent += event.summary + ' (' + data + ' ore ' + ora + ')' + '<br>';
+                    stringOutAvatar += event.summary + " il " + data.substring(8) + " " + mesi[parseInt(data.substring(5, 7)) - 1] + " " + data.substring(0, 4) + " alle ore " + ora + ". ";
+                }
             }
-            appendResponse('Prossimi eventi:'+'<br>'+stringEvent);
+            appendResponse('Prossimi eventi:' + '<br>' + stringEvent);
             window.avatar.say(stringOutAvatar, 110);
-        } 
-        else 
+        } else
         {
             window.avatar.say("Non hai eventi nel tuo calendario.");
         }
     });
 }
 
-
+/*
+ * @brief funzione per aggiungere un evento al calendario
+ * @param {string} data => data di inzio dell'evento
+ * @param {string} evento => riepilogo dell'evento
+ * @param {string} ora => eventuale ora dell'evento
+ * @param {string} dataFine => eventuale data di fine dell'evento 
+ */
 function addEventToCalendar(data, evento, ora, dataFine)
 {
-    if(ora!==undefined)
+    if (ora !== undefined)
     {
         var event = {
             "start": {
-                "dateTime": data+"T"+ora+":00",
+                "dateTime": data + "T" + ora + ":00",
                 "timeZone": "Europe/Rome"
             },
             "end": {
-                "dateTime": data+"T"+ora+":00",
+                "dateTime": data + "T" + ora + ":00",
                 "timeZone": "Europe/Rome"
             },
             "summary": evento
         };
-    }
-    else if(dataFine!==undefined)
+    } else if (dataFine !== undefined)
     {
         var event = {
             "start": {
@@ -178,8 +180,7 @@ function addEventToCalendar(data, evento, ora, dataFine)
             },
             "summary": evento
         };
-    }
-    else
+    } else
     {
         var event = {
             "start": {
@@ -191,7 +192,7 @@ function addEventToCalendar(data, evento, ora, dataFine)
             "summary": evento
         };
     }
-    
+
 
     var request = gapi.client.calendar.events.insert({
         'calendarId': document.getElementById("selectCalendar").value,
@@ -199,41 +200,45 @@ function addEventToCalendar(data, evento, ora, dataFine)
     });
 
     request.execute(function (event) {
-        if(event.htmlLink!==undefined)
+        if (event.htmlLink !== undefined)
         {
-            document.getElementById("responseSpan").style.display= "none";
-            var button= document.getElementById("responseButton");
-            button.onclick= function(){window.location.href= event.htmlLink;};
-            button.style.display="block";
+            document.getElementById("responseSpan").style.display = "none";
+            var button = document.getElementById("responseButton");
+            button.onclick = function () {
+                window.location.href = event.htmlLink;
+            };
+            button.style.display = "block";
             window.avatar.say("Ho aggiunto il tuo evento al calendario. Clicca il bottone per visualizzarlo.");
-        }
-        else
+        } else
         {
             window.avatar.say("Sintassi del comando errata!");
         }
     });
 }
 
+/*
+ * @brief metodo che legge tutti i calendari dell'utente e crea la selezione per il calendario su cui lavorare
+ */
 function getCalendarsList()
 {
     gapi.client.calendar.calendarList.list({}
     ).then(function (response) {
         var calendars = response.result.items;
-        var select= document.createElement("select");
+        var select = document.createElement("select");
         select.setAttribute("id", "selectCalendar");
-        
-        for(var i=0; i<calendars.length; i++)
+
+        for (var i = 0; i < calendars.length; i++)
         {
-            calendari[calendars[i].id]= {"summary":calendars[i].summary, "accessRole":calendars[i].accessRole};
-            
-            var option= document.createElement("option");
+            calendari[calendars[i].id] = {"summary": calendars[i].summary, "accessRole": calendars[i].accessRole};
+
+            var option = document.createElement("option");
             option.setAttribute("value", calendars[i].id);
-            option.innerHTML= calendars[i].summary;
+            option.innerHTML = calendars[i].summary;
             select.appendChild(option);
-            
-            if(calendars[i].primary!==undefined && calendars[i].primary=== true)
+
+            if (calendars[i].primary !== undefined && calendars[i].primary === true)
             {
-                select.value= calendars[i].id;
+                select.value = calendars[i].id;
             }
         }
         document.getElementById("scelta_calendario").appendChild(select);

@@ -127,17 +127,18 @@ button{
     overflow-x: hidden;
     overflow-y: auto;
 }
-/* width */
-#listaComandiScorrevole::-webkit-scrollbar {
-  width: 5px;
-}
- 
-/* Handle */
-#listaComandiScorrevole::-webkit-scrollbar-thumb {
-  background: #336ac6; 
-  border-radius: 10px;
-}
 
+::-webkit-scrollbar {display:none;}
+
+/*cambiato stile alla scrollbar del div con i comandi*/
+#listaComandiScorrevole::-webkit-scrollbar {
+    display:block;
+    width: 5px;
+}
+#listaComandiScorrevole::-webkit-scrollbar-thumb {
+    background: #336ac6; 
+    border-radius: 10px;
+}
 
 .whiteColor
 {
@@ -157,6 +158,11 @@ button{
 #selectCalendar
 {
     font-weight: 500;
+}
+
+#pTooltip
+{
+    margin: 0;
 }
 
 @media (max-width: 900px) 
@@ -238,4 +244,14 @@ button{
     .github-corner .octo-arm{
         animation:octocat-wave 560ms ease-in-out
     }
+}
+
+/*Camnbio colore della selezione del mouse*/
+::-moz-selection  {
+    background: #4285f4;
+    color: white;
+}
+::selection   {
+    background: #4285f4;
+    color: white;
 }

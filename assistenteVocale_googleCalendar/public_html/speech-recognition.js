@@ -42,15 +42,15 @@ recognition.onerror = function (event) {
 };
 
 /*
- @param String line
+ * @brief funzione che serve per interpretare in comandi ciò che l'utente dice
+ * @param {string} line => testo da interpretare
  */
 function interpret(line) {
     instructions.text('Voice recognition turned off.');
     if (line.toLowerCase() === "prossimi eventi")
     {
         listUpcomingEvents();
-    } 
-    else if (line.toLowerCase().indexOf("aggiungi") === 0 || line.toLowerCase().indexOf("inserisci") === 0)
+    } else if (line.toLowerCase().indexOf("aggiungi") === 0 || line.toLowerCase().indexOf("inserisci") === 0)
     {
         var dati = parseEvent(line);
 
@@ -64,8 +64,7 @@ function interpret(line) {
         {
             window.avatar.say("Sintassi del comando errata!");
         }
-    } 
-    else if (line.toLowerCase() === "opzioni" || line.toLowerCase() === "comandi")
+    } else if (line.toLowerCase() === "opzioni" || line.toLowerCase() === "comandi")
     {
         var footer = document.getElementById("footer");
         if (footer.attributes.class.nodeValue === "show")
@@ -90,29 +89,32 @@ function interpret(line) {
     }
 }
 
+/*
+ * @brief metodo per capire quale tipo di evento bisogna aggiungere al calendario 
+ * @param {string} s => testo da interpretare
+ */
 function parseEvent(s)
 {
     var sElement = s.split(" ");
 
-    if(sElement[sElement.length-5]==="ore")
+    if (sElement[sElement.length - 5] === "ore")//comando del tipo "Inserisci verfica di matematica ore 9:00 il 18 febbraio"
     {
         var summary = sElement[1];
-        for (var i = 2; i < (sElement.length-5); i++)
+        for (var i = 2; i < (sElement.length - 5); i++)
         {
             summary += " " + sElement[i];
         }
 
-        var ora = sElement[sElement.length-4];
+        var ora = sElement[sElement.length - 4];
 
         var dataAttuale = new Date();
-        var mese = mesi.indexOf(sElement[sElement.length-1]);
-        var giorno = sElement[sElement.length-2];
+        var mese = mesi.indexOf(sElement[sElement.length - 1]);
+        var giorno = sElement[sElement.length - 2];
         var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
         var data = anno + "-" + (mese + 1) + "-" + giorno;
 
         return {"summary": summary, "dataInizio": data, "ora": ora};
-    }
-    else if (sElement[sElement.length - 3] === "il")
+    } else if (sElement[sElement.length - 3] === "il")//comando del tipo "Inserisci verfica di matematica il 18 febbraio"
     {
         var summary = sElement[1];
         for (var i = 2; i < (sElement.length - 3); i++)
@@ -126,27 +128,27 @@ function parseEvent(s)
         var data = anno + "-" + (mese + 1) + "-" + giorno;
 
         return {"summary": summary, "dataInizio": data};
-    }
-    else if(sElement[sElement.length - 6] === "dal" && sElement[sElement.length - 3] === "al")//inserisci vacanze di pasqua dal 8 marzo al 13 marzo
+    } else if (sElement[sElement.length - 6] === "dal" && sElement[sElement.length - 3] === "al")//comando del tipo "Inserisci ferie dal 8 marzo al 13 marzo"
     {
         var summary = sElement[1];
         for (var i = 2; i < (sElement.length - 6); i++)
         {
             summary += " " + sElement[i];
         }
-        
+
         var dataAttuale = new Date();
         var giorno = sElement[sElement.length - 5];
         var mese = mesi.indexOf(sElement[sElement.length - 4]);
         var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
         var dataInizio = anno + "-" + (mese + 1) + "-" + giorno;
-        
+
         giorno = sElement[sElement.length - 2];
         mese = mesi.indexOf(sElement[sElement.length - 1]);
         anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-        var dataFine= anno + "-" + (mese + 1) + "-" + giorno;
-        
+        var dataFine = anno + "-" + (mese + 1) + "-" + giorno;
+
         return {"summary": summary, "dataInizio": dataInizio, "dataFine": dataFine};
     }
     return undefined;
-};
+}
+;
