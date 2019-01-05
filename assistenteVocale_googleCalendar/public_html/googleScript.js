@@ -171,10 +171,10 @@ function addEventToCalendar(data, evento, ora, dataFine)
     {
         var event = {
             "start": {
-                "dateTime": data
+                "date": data
             },
             "end": {
-                "dateTime": dataFine
+                "date": dataFine
             },
             "summary": evento
         };
