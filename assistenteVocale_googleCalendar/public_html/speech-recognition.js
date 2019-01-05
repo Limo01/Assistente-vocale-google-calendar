@@ -56,7 +56,7 @@ function interpret(line) {
 
         if (dati !== undefined && calendari[document.getElementById("selectCalendar").value].accessRole !== "reader")
         {
-            addEventToCalendar(dati.data, dati.ora, dati.summary);
+            addEventToCalendar(dati.dataInizio, dati.summary, dati.ora, dati.dataFine);
         } else if (calendari[document.getElementById("selectCalendar").value].accessRole === "reader")
         {
             window.avatar.say("Non hai i permessi di scrittura sul calendario selezionato!");
@@ -64,7 +64,8 @@ function interpret(line) {
         {
             window.avatar.say("Sintassi del comando errata!");
         }
-    } else if (line.toLowerCase() === "opzioni" || line.toLowerCase() === "comandi")
+    } 
+    else if (line.toLowerCase() === "opzioni" || line.toLowerCase() === "comandi")
     {
         var footer = document.getElementById("footer");
         if (footer.attributes.class.nodeValue === "show")
@@ -103,14 +104,13 @@ function parseEvent(s)
 
         var ora = sElement[sElement.length-4];
 
-        var data;
         var dataAttuale = new Date();
         var mese = mesi.indexOf(sElement[sElement.length-1]);
         var giorno = sElement[sElement.length-2];
         var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-        data = anno + "-" + (mese + 1) + "-" + giorno;
+        var data = anno + "-" + (mese + 1) + "-" + giorno;
 
-        return {"summary": summary, "data": data, "ora": ora};
+        return {"summary": summary, "dataInizio": data, "ora": ora};
     }
     else if (sElement[sElement.length - 3] === "il")
     {
@@ -123,9 +123,30 @@ function parseEvent(s)
         var giorno = sElement[sElement.length - 2];
         var mese = mesi.indexOf(sElement[sElement.length - 1]);
         var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-        data = anno + "-" + (mese + 1) + "-" + giorno;
+        var data = anno + "-" + (mese + 1) + "-" + giorno;
 
-        return {"summary": summary, "data": data};
+        return {"summary": summary, "dataInizio": data};
+    }
+    else if(sElement[sElement.length - 6] === "dal" && sElement[sElement.length - 3] === "al")//inserisci vacanze di pasqua dal 8 marzo al 13 marzo
+    {
+        var summary = sElement[1];
+        for (var i = 2; i < (sElement.length - 6); i++)
+        {
+            summary += " " + sElement[i];
+        }
+        
+        var dataAttuale = new Date();
+        var giorno = sElement[sElement.length - 5];
+        var mese = mesi.indexOf(sElement[sElement.length - 4]);
+        var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        var dataInizio = anno + "-" + (mese + 1) + "-" + giorno;
+        
+        giorno = sElement[sElement.length - 2];
+        mese = mesi.indexOf(sElement[sElement.length - 1]);
+        anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        var dataFine= anno + "-" + (mese + 1) + "-" + giorno;
+        
+        return {"summary": summary, "dataInizio": dataInizio, "dataFine": dataFine};
     }
     return undefined;
 };

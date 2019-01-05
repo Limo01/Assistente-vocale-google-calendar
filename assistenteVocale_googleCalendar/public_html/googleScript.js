@@ -151,7 +151,7 @@ function listUpcomingEvents() {
 }
 
 
-function addEventToCalendar(data, ora, evento)
+function addEventToCalendar(data, evento, ora, dataFine)
 {
     if(ora!==undefined)
     {
@@ -163,6 +163,18 @@ function addEventToCalendar(data, ora, evento)
             "end": {
                 "dateTime": data+"T"+ora+":00",
                 "timeZone": "Europe/Rome"
+            },
+            "summary": evento
+        };
+    }
+    else if(dataFine!==undefined)
+    {
+        var event = {
+            "start": {
+                "dateTime": data
+            },
+            "end": {
+                "dateTime": dataFine
             },
             "summary": evento
         };
