@@ -142,10 +142,10 @@ function parseEvent(s)
         var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
         var dataInizio = anno + "-" + (mese + 1) + "-" + giorno;
 
-        giorno = sElement[sElement.length - 2];
-        mese = mesi.indexOf(sElement[sElement.length - 1]);
-        anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
-        var dataFine = anno + "-" + (mese + 1) + "-" + giorno;
+        var giornoFine = sElement[sElement.length - 2];
+        var meseFine = mesi.indexOf(sElement[sElement.length - 1]);
+        var annoFine = (meseFine >= mese && giornoFine >= giorno) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        var dataFine = annoFine + "-" + (meseFine + 1) + "-" + giornoFine;
 
         return {"summary": summary, "dataInizio": dataInizio, "dataFine": dataFine};
     }
