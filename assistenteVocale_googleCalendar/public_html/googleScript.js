@@ -139,7 +139,8 @@ function listUpcomingEvents() {
                 }
             }
             appendResponse('Prossimi eventi:' + '<br>' + stringEvent);
-            window.avatar.say(stringOutAvatar, 110);
+            //window.avatar.say(stringOutAvatar);
+            window.avatar.say("ciao");
         } else
         {
             window.avatar.say("Non hai eventi nel tuo calendario.");

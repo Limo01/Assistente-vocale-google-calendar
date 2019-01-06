@@ -17,5 +17,5 @@ function readOutLoud(message) {
      */
     speech.onend = function(event) {
         window.avatar.smettiDiParlare();
-    }
+    };
 }

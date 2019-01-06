@@ -82,7 +82,7 @@ function interpret(line) {
         noteTextarea.val('Che giorno è oggi?');
         var data = new Date();
         var giorni = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
-        window.avatar.say("Oggi è " + giorni[data.getDay()] + " " + data.getDate() + " " + mesi[data.getMonth()] + " " + data.getFullYear(), 90);
+        window.avatar.say("Oggi è " + giorni[data.getDay()] + " " + data.getDate() + " " + mesi[data.getMonth()] + " " + data.getFullYear());
     } else
     {
         window.avatar.say("Il comando non esiste!");
