@@ -135,19 +135,13 @@ Avatar.prototype.muoviBocca = function ()
 /*
  * @brief funzione per far parlare l'avatar
  * @param {String} messaggio => messaggio che l'avatar deve dire
- * @param {int} coefficiente => Serve per regolare il tempo con il quale l'avatar impiegherà per dire un determinato messaggio  
  */
-Avatar.prototype.say = function (messaggio, coefficiente)
+Avatar.prototype.say = function (messaggio)
 {
     if (window.avatar.movimentoBocca === undefined && messaggio !== "")
     {
         window.avatar.movimentoBocca = setInterval(this.muoviBocca, 200);
         readOutLoud(messaggio);
-        if (coefficiente === undefined)
-            setTimeout(window.avatar.smettiDiParlare, (messaggio.length * 80));
-        else
-            setTimeout(window.avatar.smettiDiParlare, (messaggio.length * coefficiente));
-
     }
 };
 

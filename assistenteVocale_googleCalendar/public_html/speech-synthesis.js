@@ -11,4 +11,11 @@ function readOutLoud(message) {
     speech.rate = 1;
     speech.pitch = 1;
     window.speechSynthesis.speak(speech);
+    
+    /*
+     * @brief funzione che viene chiamata quando window.speechSynthesis.speak smette di parlare
+     */
+    speech.onend = function(event) {
+        window.avatar.smettiDiParlare();
+    }
 }
