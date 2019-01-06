@@ -116,7 +116,7 @@ function listUpcomingEvents() {
         var events = response.result.items;
 
         var stringEvent = "";
-        var stringOutAvatar = "";
+        //var stringOutAvatar = "";
 
         if (events.length > 0)
         {
@@ -128,19 +128,20 @@ function listUpcomingEvents() {
                 if (!when) {
                     when = event.start.date;
                     stringEvent += event.summary + ' (' + when + ')' + '<br>';
-                    stringOutAvatar += event.summary + " il " + when.substring(8) + " " + mesi[parseInt(when.substring(5, 7)) - 1] + " " + when.substring(0, 4) + ". ";
+                    //stringOutAvatar += event.summary + " il " + when.substring(8) + " " + mesi[parseInt(when.substring(5, 7)) - 1] + " " + when.substring(0, 4) + ". ";
+                    window.avatar.say(event.summary + " il " + when.substring(8) + " " + mesi[parseInt(when.substring(5, 7)) - 1] + " " + when.substring(0, 4) + ". ");
                 } else
                 {
                     var data = when.substring(0, 10);
                     var ora = when.substring(11, 16);
 
                     stringEvent += event.summary + ' (' + data + ' ore ' + ora + ')' + '<br>';
-                    stringOutAvatar += event.summary + " il " + data.substring(8) + " " + mesi[parseInt(data.substring(5, 7)) - 1] + " " + data.substring(0, 4) + " alle ore " + ora + ". ";
+                    //stringOutAvatar += event.summary + " il " + data.substring(8) + " " + mesi[parseInt(data.substring(5, 7)) - 1] + " " + data.substring(0, 4) + " alle ore " + ora + ". ";
+                     window.avatar.say(event.summary + " il " + data.substring(8) + " " + mesi[parseInt(data.substring(5, 7)) - 1] + " " + data.substring(0, 4) + " alle ore " + ora + ". ");
                 }
             }
             appendResponse('Prossimi eventi:' + '<br>' + stringEvent);
             //window.avatar.say(stringOutAvatar);
-            window.avatar.say("ciao");
         } else
         {
             window.avatar.say("Non hai eventi nel tuo calendario.");
