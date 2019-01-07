@@ -9,12 +9,9 @@ var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/
 // included, separated by spaces.
 var SCOPES = "https://www.googleapis.com/auth/calendar";
 
-//var authorizeButton = document.getElementById('authorize_button');
 var authorizeButton = document.getElementById('loginButton');
-//authorizeButton.onclick = handleAuthClick;
 var signoutButton = document.getElementById('logOutButton');
-//signoutButton.onclick= handleSignoutClick;
-//var signoutButton = document.getElementById('signout_button');
+
 
 var calendari = new Array();//array che contiene le informazioni per ogni calendario
 
@@ -61,6 +58,7 @@ function updateSigninStatus(isSignedIn) {
         t.toggleClass('hide');
         document.getElementById('pagina').style.display = 'block';
         document.getElementById('footer').style.display = 'block';
+        document.getElementById('creatori').style.display = 'none';
 
         getCalendarsList();
     } else
