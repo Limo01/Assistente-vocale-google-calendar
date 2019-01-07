@@ -3,7 +3,9 @@
 ------------------------------*/
 
 function readOutLoud(message) {
+    window.utterances = [];
     var speech = new SpeechSynthesisUtterance();
+    utterances.push(speech);
 
     // Set the text and voice attributes.
     speech.text = message;
