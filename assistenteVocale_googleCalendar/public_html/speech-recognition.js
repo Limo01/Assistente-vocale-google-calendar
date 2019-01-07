@@ -181,7 +181,7 @@ function parseEvent(s)
         var annoFine;
         if(meseFine === mese)
         {
-            if(giornoFine >= giorno){annoFine=  parseInt(dataInizio.split("-")[0]);}
+            if(parseInt(giornoFine) >= parseInt(giorno)){annoFine=  parseInt(dataInizio.split("-")[0]);}
             else{annoFine= parseInt(dataInizio.split("-")[0])+1;}
         }
         else if(meseFine > mese)
