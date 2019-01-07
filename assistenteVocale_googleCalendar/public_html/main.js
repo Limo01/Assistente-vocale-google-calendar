@@ -1,6 +1,6 @@
 window.onload = function () {
     this.avatar = new Avatar();
-    
+
     //Aggiunge l'evento onclick ad infoButton che serve per mostrare/nascondere il footer
     document.getElementById("infoButton").onclick = function ()
     {

@@ -110,11 +110,22 @@ function parseEvent(s)
         var dataAttuale = new Date();
         var mese = mesi.indexOf(sElement[sElement.length - 1]);
         var giorno = sElement[sElement.length - 2];
-        var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        var anno;
+        if(mese === dataAttuale.getMonth())
+        {
+            if(giorno >= dataAttuale.getDate()){anno= dataAttuale.getFullYear();}
+            else anno= dataAttuale.getFullYear()+1;
+        }
+        else if(mese > dataAttuale.getMonth())
+        {
+            anno= dataAttuale.getFullYear();
+        }
+        else{anno= dataAttuale.getFullYear() + 1;}
         var data = anno + "-" + (mese + 1) + "-" + giorno;
 
         return {"summary": summary, "dataInizio": data, "ora": ora};
-    } else if (sElement[sElement.length - 3] === "il")//comando del tipo "Inserisci verfica di matematica il 18 febbraio"
+    } 
+    else if (sElement[sElement.length - 3] === "il")//comando del tipo "Inserisci verfica di matematica il 18 febbraio"
     {
         var summary = sElement[1];
         for (var i = 2; i < (sElement.length - 3); i++)
@@ -124,31 +135,63 @@ function parseEvent(s)
         var dataAttuale = new Date();
         var giorno = sElement[sElement.length - 2];
         var mese = mesi.indexOf(sElement[sElement.length - 1]);
-        var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        var anno;
+        if(mese === dataAttuale.getMonth())
+        {
+            if(giorno >= dataAttuale.getDate()){anno= dataAttuale.getFullYear();}
+            else anno= dataAttuale.getFullYear()+1;
+        }
+        else if(mese > dataAttuale.getMonth())
+        {
+            anno= dataAttuale.getFullYear();
+        }
+        else{anno= dataAttuale.getFullYear() + 1;}
         var data = anno + "-" + (mese + 1) + "-" + giorno;
 
         return {"summary": summary, "dataInizio": data};
-    } else if (sElement[sElement.length - 6] === "dal" && sElement[sElement.length - 3] === "al")//comando del tipo "Inserisci ferie dal 8 marzo al 13 marzo"
+    } 
+    else if (sElement[sElement.length - 6] === "dal" && sElement[sElement.length - 3] === "al")//comando del tipo "Inserisci ferie dal 8 marzo al 13 marzo"
     {
         var summary = sElement[1];
         for (var i = 2; i < (sElement.length - 6); i++)
         {
             summary += " " + sElement[i];
         }
-
+        
+        //parsi per determinare la data di inizio dell'evento
         var dataAttuale = new Date();
         var giorno = sElement[sElement.length - 5];
-        var mese = mesi.indexOf(sElement[sElement.length - 4]);
-        var anno = (mese >= dataAttuale.getMonth() && giorno >= dataAttuale.getDate()) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        var mese = mesi.indexOf(sElement[sElement.length - 4]);       
+        var anno;
+        if(mese === dataAttuale.getMonth())
+        {
+            if(giorno >= dataAttuale.getDate()){anno= dataAttuale.getFullYear();}
+            else anno= dataAttuale.getFullYear()+1;
+        }
+        else if(mese > dataAttuale.getMonth())
+        {
+            anno= dataAttuale.getFullYear();
+        }
+        else{anno= dataAttuale.getFullYear() + 1;} 
         var dataInizio = anno + "-" + (mese + 1) + "-" + giorno;
-
+        
+        //parsing per determinare la data di fine dell'evento
         var giornoFine = sElement[sElement.length - 2];
         var meseFine = mesi.indexOf(sElement[sElement.length - 1]);
-        var annoFine = (meseFine >= mese && giornoFine >= giorno) ? dataAttuale.getFullYear() : dataAttuale.getFullYear() + 1;
+        var annoFine;
+        if(meseFine === mese)
+        {
+            if(giornoFine >= giorno){annoFine=  parseInt(dataInizio.split("-")[0]);}
+            else{annoFine= parseInt(dataInizio.split("-")[0])+1;}
+        }
+        else if(meseFine > mese)
+        {
+            annoFine= parseInt(dataInizio.split("-")[0]);
+        }
+        else{annoFine= parseInt(dataInizio.split("-")[0]) + 1;}
         var dataFine = annoFine + "-" + (meseFine + 1) + "-" + giornoFine;
 
         return {"summary": summary, "dataInizio": dataInizio, "dataFine": dataFine};
     }
     return undefined;
-}
-;
+};
