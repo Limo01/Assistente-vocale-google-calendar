@@ -11,4 +11,5 @@
 </table>
 
 Per il progetto sono state utilizzate le API di Google Calendar e quelle di speech synthesis e spech recognition <br>
-Realizzato utilizzando Javascript
+Realizzato utilizzando Javascript.<br>
+L'applicazione è raggiungibile [qui](https://limo01.github.io/assistenteVocale_googleCalendar/public_html/).
