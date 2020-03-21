@@ -5,11 +5,17 @@
     <img src="/img/screen.PNG" height="fill" width="fill" align="center">
   </td>
   <td>
-    L'applicazione ha il compito di tradurre i comandi vocali dell'utente in azioni sul proprio calendario google. <br>
-    Le azioni disponibili sono tutte le azioni che si possono eseguire su un calendario: lettura, creazione e modifica di eventi <br>
+    This Web Application has the task of translating the user's voice commands into actions on their Google Calendar. <br>
+    The commands available are all the operations that can be performed on a calendar: reading, creating and modifying events. <br>
   </td>
 </table>
 
-Per il progetto sono state utilizzate le API di Google Calendar e quelle di speech synthesis e spech recognition <br>
-Realizzato utilizzando Javascript.<br>
-L'applicazione è raggiungibile [qui](https://limo01.github.io/assistenteVocale_googleCalendar/public_html/).
+The following APIs were used for the project:<br>
+<ul>
+  <li>Google Calendar API</li>
+  <li>Speech synthesis</li>
+  <li>spech recognition</li>
+</ul>
+Made in javascript.<br>
+
+The application is reachable [here](https://limo01.github.io/assistenteVocale_googleCalendar/public_html/)
