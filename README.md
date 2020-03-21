@@ -1,4 +1,4 @@
-# Assistente vocale google calendar
+# Google Calendar Assistant
 
 <table>
   <td width="600" align="center">
