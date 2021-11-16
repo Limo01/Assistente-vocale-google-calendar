@@ -9,8 +9,8 @@ The application is reachable [here](https://limo01.github.io/assistenteVocale_go
 
 The following APIs were used for the project:
   * Google Calendar API
-  * Speech synthesis
-  * spech recognition
+  * Speech Synthesis
+  * Speech Recognition
 
 ## Screenshot ##
 
